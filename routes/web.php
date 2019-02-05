@@ -167,6 +167,21 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/admin/comentarios/r{id}', ['as' => 'eliminarcomentario', 'uses'=>'Backend\ComentariosController@delete']);
   //********************** FIN comentarios ****************************************
 
+   //********************** Nosotros ****************************************
+  //Listar registros de Nosotros
+  Route::get('/admin/nosotros', ['as' => 'vernosotros', 'uses'=>'Backend\NosotrosController@index']);
+  //Agregar registro de Nosotros
+  Route::post('/admin/nosotros', ['as' => 'ingresarmiembro', 'uses'=>'Backend\NosotrosController@store']);
+  //Buscar miembro ya registrado
+  Route::get('/admin/nosotros/u{nosotros}', ['as' => 'buscarmiembro', 'uses'=>'Backend\NosotrosController@edit']);
+  //Actualizar Miembro ya registrado
+  Route::post('/admin/nosotros/u{nosotros}', ['as' => 'actualizarmiembro', 'uses'=>'Backend\NosotrosController@update']);
+  //Mostrar formulario de Nosotros
+  Route::get('/admin/nuevomiembro', ['as' => 'formmiembro', 'uses'=>'Backend\NosotrosController@create']);
+  //Eliminar registros de Nosotros
+  Route::get('/admin/nosotros/r{nosotros}', ['as' => 'eliminarmiembro', 'uses'=>'Backend\NosotrosController@destroy']);
+  //********************** FIN Nosotros ****************************************
+
    //********************** preguntas ****************************************
   //Listar registros de Preguntas
   Route::get('/admin/preguntas', ['as' => 'verpreguntas', 'uses'=>'Backend\PreguntasController@index']);
