@@ -30,7 +30,7 @@
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
-        <a href="https://lariojaautentica.com/" class="simple-text logo-normal" style="color: red">
+        <a href="https://lariojaautentica.com/" class="simple-text logo-normal " >
           <b>@isset ($title) {{ $title }} @endisset</b>
         </a>
       </div>
@@ -80,7 +80,7 @@
           <nav class="float-left">
             <ul>
               <li>
-                <a href="#">
+                <a class="titlle" href="@isset ($meta_url) {{ $meta_url }} @endisset">
                   @isset ($title) {{ $title }} @endisset
                 </a>
               </li>
@@ -91,7 +91,7 @@
             <script>
               document.write(new Date().getFullYear())
             </script>, hecho con <i class="material-icons">favorite</i> por
-            <a href="https://www.creative-tim.com" target="_blank">TIFYCA</a>.
+            <a href="" target="_blank">TIFYCA</a>.
           </div>
           <!-- your footer here -->
         </div>
