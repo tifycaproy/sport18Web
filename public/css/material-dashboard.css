@@ -12815,7 +12815,7 @@ Copyright (c) 2015 Daniel Eden
   .sidebar .navbar-form {
     display: none !important; } }
 .dark-edition {
-  background-color: #212121; }
+  background-color: #DCDCDC; }
   .dark-edition .btn, .dark-edition .btn.btn-default {
     color: #fff;
     background-color: #9095a2;
@@ -12860,46 +12860,46 @@ Copyright (c) 2015 Daniel Eden
         color: #9095a2; }
   .dark-edition .btn.btn-primary {
     color: #fff;
-    background-color: #c20f0f;
-    border-color: #c20f0f;
-    box-shadow: 0 2px 2px 0 rgba(194, 15, 15, 0.14), 0 3px 1px -2px rgba(194, 15, 15, 0.2), 0 1px 5px 0 rgba(194, 15, 15, 0.12); }
+    background-color: #A52A2A;
+    border-color: #A52A2A;
+    box-shadow: 0 2px 2px 0 rgba(165, 42, 42, 0.14), 0 3px 1px -2px rgba(165, 42, 42, 0.2), 0 1px 5px 0 rgba(165, 42, 42, 0.12); }
     .dark-edition .btn.btn-primary:hover {
       color: #fff;
-      background-color: #b40e0e;
-      border-color: #890b0b; }
+      background-color: #992727;
+      border-color: #741e1e; }
     .dark-edition .btn.btn-primary:focus, .dark-edition .btn.btn-primary.focus, .dark-edition .btn.btn-primary:hover {
       color: #fff;
-      background-color: #b40e0e;
-      border-color: #890b0b; }
+      background-color: #992727;
+      border-color: #741e1e; }
     .dark-edition .btn.btn-primary:active, .dark-edition .btn.btn-primary.active, .open > .dark-edition .btn.btn-primary.dropdown-toggle, .show > .dark-edition .btn.btn-primary.dropdown-toggle {
       color: #fff;
-      background-color: #b40e0e;
-      border-color: #890b0b;
-      box-shadow: 0 2px 2px 0 rgba(194, 15, 15, 0.14), 0 3px 1px -2px rgba(194, 15, 15, 0.2), 0 1px 5px 0 rgba(194, 15, 15, 0.12); }
+      background-color: #992727;
+      border-color: #741e1e;
+      box-shadow: 0 2px 2px 0 rgba(165, 42, 42, 0.14), 0 3px 1px -2px rgba(165, 42, 42, 0.2), 0 1px 5px 0 rgba(165, 42, 42, 0.12); }
       .dark-edition .btn.btn-primary:active:hover, .dark-edition .btn.btn-primary:active:focus, .dark-edition .btn.btn-primary:active.focus, .dark-edition .btn.btn-primary.active:hover, .dark-edition .btn.btn-primary.active:focus, .dark-edition .btn.btn-primary.active.focus, .open > .dark-edition .btn.btn-primary.dropdown-toggle:hover, .open > .dark-edition .btn.btn-primary.dropdown-toggle:focus, .open > .dark-edition .btn.btn-primary.dropdown-toggle.focus, .show > .dark-edition .btn.btn-primary.dropdown-toggle:hover, .show > .dark-edition .btn.btn-primary.dropdown-toggle:focus, .show > .dark-edition .btn.btn-primary.dropdown-toggle.focus {
         color: #fff;
-        background-color: #b40e0e;
-        border-color: #4c0606; }
+        background-color: #992727;
+        border-color: #3f1010; }
     .open > .dark-edition .btn.btn-primary.dropdown-toggle.bmd-btn-icon {
       color: inherit;
-      background-color: #c20f0f; }
+      background-color: #A52A2A; }
       .open > .dark-edition .btn.btn-primary.dropdown-toggle.bmd-btn-icon:hover {
-        background-color: #b40e0e; }
+        background-color: #992727; }
     .dark-edition .btn.btn-primary.disabled:focus, .dark-edition .btn.btn-primary.disabled.focus, .dark-edition .btn.btn-primary:disabled:focus, .dark-edition .btn.btn-primary:disabled.focus {
-      background-color: #c20f0f;
-      border-color: #c20f0f; }
+      background-color: #A52A2A;
+      border-color: #A52A2A; }
     .dark-edition .btn.btn-primary.disabled:hover, .dark-edition .btn.btn-primary:disabled:hover {
-      background-color: #c20f0f;
-      border-color: #c20f0f; }
+      background-color: #A52A2A;
+      border-color: #A52A2A; }
     .dark-edition .btn.btn-primary:focus, .dark-edition .btn.btn-primary:active, .dark-edition .btn.btn-primary:hover {
-      box-shadow: 0 14px 26px -12px rgba(194, 15, 15, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(194, 15, 15, 0.2); }
+      box-shadow: 0 14px 26px -12px rgba(165, 42, 42, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(165, 42, 42, 0.2); }
     .dark-edition .btn.btn-primary.btn-link {
       background-color: transparent;
-      color: #c20f0f;
+      color: #A52A2A;
       box-shadow: none; }
       .dark-edition .btn.btn-primary.btn-link:hover, .dark-edition .btn.btn-primary.btn-link:focus, .dark-edition .btn.btn-primary.btn-link:active {
         background-color: transparent;
-        color: #c20f0f; }
+        color: #A52A2A; }
   .dark-edition .btn.btn-warning {
     color: #fff;
     background-color: #f5700c;
@@ -13195,7 +13195,7 @@ Copyright (c) 2015 Daniel Eden
         background-color: transparent;
         color: #55acee; }
   .dark-edition .sidebar[data-color="purple"] li.active > a {
-    background: linear-gradient(60deg, #c20f0f, #c20f0f);
+    background: linear-gradient(60deg, #c20f0f, #A52A2A);
     box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4); }
   .dark-edition .sidebar[data-color="azure"] li.active > a {
     background: linear-gradient(60deg, #029eb1, #25b1c3);
@@ -13216,7 +13216,7 @@ Copyright (c) 2015 Daniel Eden
     -ms-transition: all 150ms ease-in, color, 0ms;
     transition: all 150ms ease-in, color, 0ms; }
   .dark-edition .sidebar .sidebar-background:after, .dark-edition .sidebar {
-    background: #212121;
+    background: #DCDCDC;
     opacity: .94; }
   .dark-edition .sidebar[data-background-color="black"] .nav li:not(.active) a,
   .dark-edition .sidebar[data-background-color="black"] .nav li:not(.active) .dropdown-menu a {
@@ -13241,7 +13241,7 @@ Copyright (c) 2015 Daniel Eden
   .dark-edition .navbar[class*="bg-"] .form-control::-webkit-input-placeholder {
     color: #fff; }
   .dark-edition .navbar .notification {
-    background: linear-gradient(60deg, #c20f0f, #c20f0f);
+    background: linear-gradient(60deg, #c20f0f, #A52A2A);
     border: 0;
     height: 18px;
     min-width: 18px;
@@ -13249,7 +13249,7 @@ Copyright (c) 2015 Daniel Eden
   .dark-edition .navbar .navbar-toggler .icon-bar {
     background: white !important; }
   .dark-edition .navbar.bg-primary {
-    background-color: #c20f0f !important; }
+    background-color: #A52A2A !important; }
   .dark-edition .navbar.bg-info {
     background-color: #029eb1 !important; }
   .dark-edition .navbar.bg-warning {
@@ -13269,7 +13269,7 @@ Copyright (c) 2015 Daniel Eden
       animation: heartbeat 1s infinite;
       -webkit-background-clip: text;
       background-clip: text;
-      background-image: linear-gradient(60deg, #c20f0f, #c20f0f);
+      background-image: linear-gradient(60deg, #c20f0f, #A52A2A);
       color: transparent; }
   .dark-edition .card {
     background: #DCDCDC; }
@@ -13292,7 +13292,7 @@ Copyright (c) 2015 Daniel Eden
     .dark-edition .card .card-footer .stats a {
       -webkit-background-clip: text;
       background-clip: text;
-      background-image: linear-gradient(60deg, #c20f0f, #c20f0f);
+      background-image: linear-gradient(60deg, #c20f0f, #A52A2A);
       color: transparent; }
     .dark-edition .card .card-header-warning .card-icon,
     .dark-edition .card .card-header-warning .card-text,
@@ -13313,9 +13313,9 @@ Copyright (c) 2015 Daniel Eden
     .dark-edition .card .card-header-primary .card-icon,
     .dark-edition .card .card-header-primary .card-text,
     .dark-edition .card .card-header-primary:not(.card-header-icon):not(.card-header-text), .dark-edition .card.bg-primary, .dark-edition .card.card-rotate.bg-primary .front, .dark-edition .card.card-rotate.bg-primary .back {
-      background: linear-gradient(60deg, #c20f0f, #c20f0f); }
+      background: linear-gradient(60deg, #c20f0f, #A52A2A); }
   .dark-edition .primary-link {
-    background-image: linear-gradient(60deg, #c20f0f, #c20f0f) !important; }
+    background-image: linear-gradient(60deg, #c20f0f, #A52A2A) !important; }
   .dark-edition .info-link {
     background-image: linear-gradient(60deg, #029eb1, #25b1c3) !important; }
   .dark-edition .warning-link {
@@ -14025,7 +14025,7 @@ Copyright (c) 2015 Daniel Eden
     .dark-edition .fixed-plugin .badge {
       border: 2px solid #303c58; }
       .dark-edition .fixed-plugin .badge.badge-purple {
-        background-color: #c20f0f; }
+        background-color: #A52A2A; }
       .dark-edition .fixed-plugin .badge.badge-azure {
         background-color: #029eb1; }
       .dark-edition .fixed-plugin .badge.badge-green {
@@ -14049,10 +14049,10 @@ Copyright (c) 2015 Daniel Eden
     .dark-edition .dropdown:not(.show-dropdown) .dropdown-menu li > a:focus,
     .dark-edition .dropdown:not(.show-dropdown) .dropdown-menu li > a:active {
       box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0);
-      background: linear-gradient(60deg, #c20f0f, #c20f0f);
+      background: linear-gradient(60deg, #c20f0f, #A52A2A);
       color: #fff; }
   .dark-edition .text-primary {
-    color: #e31212 !important; }
+    color: #c13131 !important; }
   .dark-edition .text-muted, .dark-edition .bmd-help {
     color: #9095a2 !important; }
   .dark-edition .text-info {
@@ -14093,7 +14093,7 @@ Copyright (c) 2015 Daniel Eden
     background: linear-gradient(60deg, #d22824, #da3a36);
     background-color: unset; }
   .dark-edition .alert.alert-primary {
-    background: linear-gradient(60deg, #c20f0f, #c20f0f);
+    background: linear-gradient(60deg, #c20f0f, #A52A2A);
     background-color: unset; }
   .dark-edition .alert .close {
     outline: 0;
