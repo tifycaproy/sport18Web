@@ -17,3 +17,12 @@
     	width: 100% !important;
     }
 
+
+.copyright, .navbar-brand, .titlle{
+    color: black !important;
+}
+
+.logo-normal{
+    color: white;
+    font-weight: bold !important;
+}
