@@ -182,6 +182,21 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/admin/nosotros/r{nosotros}', ['as' => 'eliminarmiembro', 'uses'=>'Backend\NosotrosController@destroy']);
   //********************** FIN Nosotros ****************************************
 
+   //********************** JUGADORES ****************************************
+  //Listar registros de Jugadores
+  Route::get('/admin/jugadores', ['as' => 'verjugadores', 'uses'=>'Backend\JugadoresController@index']);
+  //Agregar registro de Jugadores
+  Route::post('/admin/jugadores', ['as' => 'ingresarjugador', 'uses'=>'Backend\JugadoresController@store']);
+  //Buscar jugador ya registrado
+  Route::get('/admin/jugadores/u{jugadores}', ['as' => 'buscarjugador', 'uses'=>'Backend\JugadoresController@edit']);
+  //Actualizar jugador ya registrado
+  Route::post('/admin/jugadores/u{jugadores}', ['as' => 'actualizarjugador', 'uses'=>'Backend\JugadoresController@update']);
+  //Mostrar formulario de Jugadores
+  Route::get('/admin/nuevojugador', ['as' => 'formjugador', 'uses'=>'Backend\JugadoresController@create']);
+  //Eliminar registros de Jugadores
+  Route::get('/admin/jugadores/r{jugadores}', ['as' => 'eliminarjugador', 'uses'=>'Backend\JugadoresController@destroy']);
+  //********************** FIN JUGADORES ****************************************
+
    //********************** preguntas ****************************************
   //Listar registros de Preguntas
   Route::get('/admin/preguntas', ['as' => 'verpreguntas', 'uses'=>'Backend\PreguntasController@index']);
