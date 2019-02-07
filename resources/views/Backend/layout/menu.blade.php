@@ -31,6 +31,7 @@
               <p>Nosotros</p>
             </a>
           </li>   
+          
           <li id="jugadores" class="nav-item">
             <a class="nav-link disabled" href="{{ route('verjugadores')}}">
               <i class="material-icons">face</i>
