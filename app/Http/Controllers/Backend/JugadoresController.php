@@ -17,9 +17,9 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        $jugadores=Jugadores::select(DB::raw('id, nombres,  IF (publico = "1", "Si", "No") as publico, equipos.descripcion,  updated_at'))
+        $jugadores=Jugadores::select(DB::raw('jugadores.id, nombres,  IF (publico = "1", "Si", "No") as publico, equipos.descripcion,  jugadores.updated_at'))
                             ->join('equipos', 'jugadores.id_equipo','=','equipos.id')
-                            ->orderBy('updated_at','desc')
+                            ->orderBy('jugadores.updated_at','desc')
                             ->get();
    
     return view('Backend.jugadores',['jugadores'=>$jugadores]);
