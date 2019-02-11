@@ -107,7 +107,33 @@ class JugadoresController extends Controller
      */
     public function update(Request $request, Jugadores $jugadores)
     {
-        //
+        $jugador = Jugadores::where('id', $jugadores->id)
+        ->first();
+
+        if (!$jugador){
+        return view('Backend.index');
+        }
+        else{
+
+            $jugador = Jugadores::find($jugadores->id)
+                        ->fill($request->input());
+            if($request->hasFile('url_imagen')){
+                    $nombreArchivo = "img_jugadores";
+                    $archivo_img = $nombreArchivo."_".time().'.'.$request["url_imagen"]->getClientOriginalExtension();
+                    $path = public_path().'/images/jugadores/';
+                    $request["url_imagen"]->move($path, $archivo_img);
+                    $jugador->img = $archivo_img;
+            }
+            if($request["publico"]){
+                $jugador->publico= "1";
+            }
+            else {
+            $jugador->publico = "0";
+            }
+                $jugador->id_usuario = Auth::id();
+                $jugador->save();
+            return redirect()->route("verjugadores");
+        }
     }
 
     /**
