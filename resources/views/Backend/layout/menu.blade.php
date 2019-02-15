@@ -19,13 +19,25 @@
               <p>NewsLetter</p>
             </a>
           </li>
-          <li id="preguntas" class="nav-item">
-            <a class="nav-link disabled" href="{{ route('verpreguntas')}}">
-              <i class="material-icons">contact_support</i>
-              <p>Preguntas Frecuentes</p>
+          <li id="noticias" class="nav-item">
+            <a class="nav-link disabled" href="{{ route('vernoticias')}}">
+              <i class="material-icons">vertical_split</i>
+              <p>Noticias</p>
             </a>
-          </li>
-         
+          </li>      
+          <li id="nosotros" class="nav-item">
+            <a class="nav-link disabled" href="{{ route('vernosotros')}}">
+              <i class="material-icons">domain</i>
+              <p>Nosotros</p>
+            </a>
+          </li>   
+          
+          <li id="jugadores" class="nav-item">
+            <a class="nav-link disabled" href="{{ route('verjugadores')}}">
+              <i class="material-icons">face</i>
+              <p>Jugadores</p>
+            </a>
+          </li> 
 
           @if(Auth::user()->hasRole('admin'))
           <li id="usuarios" class="nav-item">
