@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Equipos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class EquiposController extends Controller
@@ -15,7 +17,7 @@ class EquiposController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -25,7 +27,11 @@ class EquiposController extends Controller
      */
     public function create()
     {
-        //
+        $equipos=Equipos::select(DB::raw('id,descripcion, updated_at'))       
+        ->orderBy('updated_at','desc')
+        ->get();
+
+        return view('Backend..form.formequipo',['equipos'=>$equipos]);
     }
 
     /**
@@ -36,7 +42,12 @@ class EquiposController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $equipo = new Equipos();
+        $equipo->fill($request->input());
+        $equipo->id_usuario = Auth::id();
+        $equipo->save();
+    
+        return redirect()->route("formequipo");
     }
 
     /**
@@ -58,7 +69,17 @@ class EquiposController extends Controller
      */
     public function edit(Equipos $equipos)
     {
-        //
+        $equipo = Equipos::where('id', $equipos->id)
+                ->first();
+
+      if (!$equipo){
+        return view('Backend.index');
+      }
+      else{
+        $equipo = Equipos::where('id', $equipos->id)
+                       ->first();        
+        return view('Backend.form.formequipoupdate',['equipo'=>$equipo]);
+      }
     }
 
     /**
@@ -70,7 +91,20 @@ class EquiposController extends Controller
      */
     public function update(Request $request, Equipos $equipos)
     {
-        //
+        $equipo = Equipos::where('id', $equipos->id)
+                ->first();
+        if (!$equipo){
+        return view('Backend.index');
+        }
+        else{
+
+        $equipo = Equipos::find($equipos->id)
+                ->fill($request->input());
+        $equipo->id_usuario = Auth::id();
+        $equipo->save()
+        ;
+        return redirect()->route("formequipo");
+        }        
     }
 
     /**
@@ -81,6 +115,7 @@ class EquiposController extends Controller
      */
     public function destroy(Equipos $equipos)
     {
-        //
+        Equipos::where('id', $equipos->id)->delete();
+        return redirect()->route("formequipo");
     }
 }

@@ -11,17 +11,17 @@
                     <i class="material-icons">add_comment</i>
                   </button>
                    Agregar Jugador</a>
-                  <a href="{{ route('formjugador')}}" class="card-category">
+                  <a href="{{ route('formequipo')}}" class="card-category">
                   <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
                     <i class="material-icons">add_comment</i>
                   </button>
                     Agregar Equipo</a>
-                  <a href="{{ route('formjugador')}}" class="card-category">
+                  <a href="{{ route('formposicion')}}" class="card-category">
                   <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
                     <i class="material-icons">add_comment</i>
                   </button>
                     Agregar Posición</a>
-                  <a href="{{ route('formjugador')}}" class="card-category">
+                  <a href="{{ route('formclasificacion')}}" class="card-category">
                     <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
                       <i class="material-icons">add_comment</i>
                     </button>

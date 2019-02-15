@@ -122,7 +122,6 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/admin/nuevocampo', ['as' => 'formcampo', 'uses'=>'Backend\CamposController@form']);
   //Eliminar registros de Campos
   Route::get('/admin/campos/r{id}', ['as' => 'eliminarcampo', 'uses'=>'Backend\CamposController@delete']);
-
   //********************** FIN CAMPOS ****************************************
 
   //********************** CATEGORIAS ****************************************
@@ -196,6 +195,45 @@ Route::group(['middleware' => 'auth'], function()
   //Eliminar registros de Jugadores
   Route::get('/admin/jugadores/r{jugadores}', ['as' => 'eliminarjugador', 'uses'=>'Backend\JugadoresController@destroy']);
   //********************** FIN JUGADORES ****************************************
+
+ //********************** Equipos ****************************************
+  //Agregar registro de Equipos
+  Route::post('/admin/equipos', ['as' => 'ingresarequipo', 'uses'=>'Backend\EquiposController@store']);
+  //Buscar Equipo ya registrado
+  Route::get('/admin/equipos/u{equipos}', ['as' => 'buscarequipo', 'uses'=>'Backend\EquiposController@edit']);
+  //Actualizar Equipo ya registrado
+  Route::post('/admin/equipos/u{equipos}', ['as' => 'actualizarequipo', 'uses'=>'Backend\EquiposController@update']);
+  //Mostrar formulario de Equipos
+  Route::get('/admin/nuevoequipo', ['as' => 'formequipo', 'uses'=>'Backend\EquiposController@create']);
+  //Eliminar registros de Equipo
+  Route::get('/admin/equipos/r{equipos}', ['as' => 'eliminarequipo', 'uses'=>'Backend\EquiposController@destroy']);
+  //********************** FIN Equipos ****************************************
+
+   //********************** Posiciones ****************************************
+  //Agregar registro de Posiciones
+  Route::post('/admin/posiciones', ['as' => 'ingresarposicion', 'uses'=>'Backend\PosicionesController@store']);
+  //Buscar Posicion ya registrada
+  Route::get('/admin/posiciones/u{id}', ['as' => 'buscarposicion', 'uses'=>'Backend\PosicionesController@edit']);
+  //Actualizar Posicion ya registrada
+  Route::post('/admin/posiciones/u{id}', ['as' => 'actualizarposicion', 'uses'=>'Backend\PosicionesController@update']);
+  //Mostrar formulario de Posiciones
+  Route::get('/admin/nuevaposicion', ['as' => 'formposicion', 'uses'=>'Backend\PosicionesController@create']);
+  //Eliminar registros de Posicion
+  Route::get('/admin/posiciones/r{id}', ['as' => 'eliminarposicion', 'uses'=>'Backend\PosicionesController@destroy']);
+  //********************** FIN Posiciones ****************************************
+
+     //********************** Clasificaciones ****************************************
+  //Agregar registro de Clasificaciones
+  Route::post('/admin/clasificaciones', ['as' => 'ingresarclasificacion', 'uses'=>'Backend\ClasificacionesController@create']);
+  //Buscar Clasificacion ya registrada
+  Route::get('/admin/clasificaciones/u{id}', ['as' => 'buscarclasificacion', 'uses'=>'Backend\ClasificacionesController@onesearch']);
+  //Actualizar Clasificacion ya registrada
+  Route::post('/admin/clasificaciones/u{id}', ['as' => 'actualizarclasificacion', 'uses'=>'Backend\ClasificacionesController@update']);
+  //Mostrar formulario de Clasificaciones
+  Route::get('/admin/nuevaclasificacion', ['as' => 'formclasificacion', 'uses'=>'Backend\ClasificacionesController@form']);
+  //Eliminar registros de Clasificacion
+  Route::get('/admin/clasificaciones/r{id}', ['as' => 'eliminarclasificacion', 'uses'=>'Backend\ClasificacionesController@delete']);
+  //********************** FIN Clasificaciones ****************************************
 
    //********************** preguntas ****************************************
   //Listar registros de Preguntas
