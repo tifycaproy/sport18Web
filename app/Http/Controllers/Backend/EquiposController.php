@@ -44,6 +44,13 @@ class EquiposController extends Controller
     {
         $equipo = new Equipos();
         $equipo->fill($request->input());
+        if($request->hasFile('url_imagen')){
+            $nombreArchivo = "img_equipo";
+            $archivo_img = $nombreArchivo."_".time().'.'.$request["url_imagen"]->getClientOriginalExtension();
+                    $path = public_path().'/images/equipos/';
+                    $request["url_imagen"]->move($path, $archivo_img);
+            $equipo->img = $archivo_img;
+          }
         $equipo->id_usuario = Auth::id();
         $equipo->save();
     
@@ -100,6 +107,13 @@ class EquiposController extends Controller
 
         $equipo = Equipos::find($equipos->id)
                 ->fill($request->input());
+        if($request->hasFile('url_imagen')){
+            $nombreArchivo = "img_equipo";
+            $archivo_img = $nombreArchivo."_".time().'.'.$request["url_imagen"]->getClientOriginalExtension();
+            $path = public_path().'/images/equipos/';
+            $request["url_imagen"]->move($path, $archivo_img);
+            $equipo->img = $archivo_img;
+            }
         $equipo->id_usuario = Auth::id();
         $equipo->save()
         ;
