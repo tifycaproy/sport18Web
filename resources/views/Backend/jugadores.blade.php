@@ -40,6 +40,12 @@
                           Equipo
                         </th>
                         <th>
+                          Posición
+                        </th>
+                        <th>
+                          Clasificación
+                        </th>
+                        <th>
                           Público
                           </th>
                         <th>
@@ -57,7 +63,13 @@
                               {{ $jugador->nombres }}
                           </td>
                           <td>
-                            {{ $jugador->descripcion }}
+                            {{ $jugador->equipo }}
+                          </td>
+                          <td>
+                            {{ $jugador->posicion }}
+                          </td>
+                          <td>
+                            {{ $jugador->clasificacion }}
                           </td>
                           <td>
                             {{ $jugador->publico }}

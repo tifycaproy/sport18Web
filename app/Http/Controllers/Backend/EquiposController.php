@@ -31,7 +31,7 @@ class EquiposController extends Controller
         ->orderBy('updated_at','desc')
         ->get();
 
-        return view('Backend..form.formequipo',['equipos'=>$equipos]);
+        return view('Backend.form.formequipo',['equipos'=>$equipos]);
     }
 
     /**

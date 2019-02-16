@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Posiciones;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class PosicionesController extends Controller
@@ -25,7 +27,11 @@ class PosicionesController extends Controller
      */
     public function create()
     {
-        //
+        $posiciones=Posiciones::select(DB::raw('id,descripcion, updated_at'))       
+        ->orderBy('updated_at','desc')
+        ->get();
+
+        return view('Backend.form.formposicion',['posiciones'=>$posiciones]);
     }
 
     /**
@@ -36,7 +42,12 @@ class PosicionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $posicion = new Posiciones();
+        $posicion->fill($request->input());
+        $posicion->id_usuario = Auth::id();
+        $posicion->save();
+    
+        return redirect()->route("formposicion");
     }
 
     /**
@@ -58,7 +69,15 @@ class PosicionesController extends Controller
      */
     public function edit(Posiciones $posiciones)
     {
-        //
+        $posicion = Posiciones::where('id', $posiciones->id)
+        ->first();
+
+        if (!$posicion){
+        return view('Backend.index');
+        }
+        else{     
+        return view('Backend.form.formposicionupdate',['posicion'=>$posicion]);
+        }
     }
 
     /**
@@ -70,7 +89,19 @@ class PosicionesController extends Controller
      */
     public function update(Request $request, Posiciones $posiciones)
     {
-        //
+        $posicion = Posiciones::where('id', $posiciones->id)
+                ->first();
+        if (!$posicion){
+        return view('Backend.index');
+        }
+        else{
+
+        $posicion = Posiciones::find($posiciones->id)
+                ->fill($request->input());
+        $posicion->id_usuario = Auth::id();
+        $posicion->save();
+        return redirect()->route("formposicion");
+        }      
     }
 
     /**
@@ -81,6 +112,7 @@ class PosicionesController extends Controller
      */
     public function destroy(Posiciones $posiciones)
     {
-        //
+        Posiciones::where('id', $posiciones->id)->delete();
+        return redirect()->route("formposicion");
     }
 }

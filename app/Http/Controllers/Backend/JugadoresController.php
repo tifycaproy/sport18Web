@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Jugadores;
+use App\Equipos;
+use App\Posiciones;
+use App\Clasificaciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,8 +20,10 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        $jugadores=Jugadores::select(DB::raw('jugadores.id, nombres,  IF (publico = "1", "Si", "No") as publico, equipos.descripcion,  jugadores.updated_at'))
+        $jugadores=Jugadores::select(DB::raw('jugadores.id, nombres,  IF (publico = "1", "Si", "No") as publico, equipos.descripcion as equipo, posiciones.descripcion as posicion, clasificaciones.descripcion as clasificacion, jugadores.updated_at'))
                             ->join('equipos', 'jugadores.id_equipo','=','equipos.id')
+                            ->join('posiciones', 'jugadores.id_posicion','=','posiciones.id')
+                            ->join('clasificaciones', 'jugadores.id_clasificacion','=','clasificaciones.id')
                             ->orderBy('jugadores.updated_at','desc')
                             ->get();
    
@@ -32,7 +37,15 @@ class JugadoresController extends Controller
      */
     public function create()
     {
-        return view('Backend.form.formjugador');
+        $equipos = Equipos::pluck('descripcion','id');           
+        $posiciones = Posiciones::pluck('descripcion','id');           
+        $clasificaciones = Clasificaciones::pluck('descripcion','id'); 
+        $tipos = collect([
+            ['id' => 'Titular', 'descripcion' => 'Titular'],
+            ['id' => 'Suplente', 'descripcion' => 'Suplente'],            
+        ]);            
+        $tipos_sel = $tipos->pluck('descripcion','id');           
+        return view('Backend.form.formjugador',['equipos'=>$equipos,'posiciones'=>$posiciones,'clasificaciones'=>$clasificaciones,'tipos_sel'=>$tipos_sel]);
     }
 
     /**
@@ -43,6 +56,7 @@ class JugadoresController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         if($request["publico"]){
             $publico= "1";
         }
@@ -56,7 +70,7 @@ class JugadoresController extends Controller
           $archivo_img = $nombreArchivo."_".time().'.'.$request["url_imagen"]->getClientOriginalExtension();
                   $path = public_path().'/images/jugadores/';
                   $request["url_imagen"]->move($path, $archivo_img);
-          $jugador->url_imagen = $archivo_img;
+          $jugador->img = $archivo_img;
         }
         $jugador->publico=$publico;
         $jugador->id_usuario = Auth::id();
@@ -144,6 +158,7 @@ class JugadoresController extends Controller
      */
     public function destroy(Jugadores $jugadores)
     {
-        //
+        Jugadores::where('id', $jugadores->id)->delete();
+        return redirect()->route("verjugadores");
     }
 }
