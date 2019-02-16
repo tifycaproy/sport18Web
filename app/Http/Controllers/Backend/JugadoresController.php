@@ -105,10 +105,22 @@ class JugadoresController extends Controller
         return view('Backend.index');
         }
         else{
-        $jugador = Jugadores::select(DB::raw('id, nombres, IF (publico = "1", "checked", "") as publico, cargo, url_imagen,  updated_at'))
-                        ->where('id', $jugadores->id)
+        $jugador = Jugadores::select(DB::raw('jugadores.id, IF (publico = "1", "checked", "") as publico, facebook, twiter, instagram, tipo, nombre_representante, cedula_representante, telefono_representante, cedula, fecha_nacimiento, coreo, telefono, lugar_nacimiento, trayectoria, nivel_academico, talla_zapato, peso, altura, nombre_representante, nombres, jugadores.img, equipos.id as id_equipo, posiciones.id as id_posicion, clasificaciones.id as id_clasificacion, jugadores.updated_at'))
+                            ->join('equipos', 'jugadores.id_equipo','=','equipos.id')
+                            ->join('posiciones', 'jugadores.id_posicion','=','posiciones.id')
+                            ->join('clasificaciones', 'jugadores.id_clasificacion','=','clasificaciones.id')
+                        ->where('jugadores.id', $jugadores->id)
                     ->first();
-        return view('Backend.form.formjugadorupdate',['jugador'=>$jugador]);
+        $equipos = Equipos::pluck('descripcion','id');          
+        $posiciones = Posiciones::pluck('descripcion','id');           
+        $clasificaciones = Clasificaciones::pluck('descripcion','id'); 
+        $tipos = collect([
+            ['id' => 'Titular', 'descripcion' => 'Titular'],
+            ['id' => 'Suplente', 'descripcion' => 'Suplente'],            
+        ]);            
+        $tipos_sel = $tipos->pluck('descripcion','id');  
+
+        return view('Backend.form.formjugadorupdate',['jugador'=>$jugador,'equipos'=>$equipos,'posiciones'=>$posiciones,'clasificaciones'=>$clasificaciones,'tipos_sel'=>$tipos_sel]);
         }
     }
 
