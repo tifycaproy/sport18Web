@@ -132,7 +132,7 @@ class JugadoresController extends Controller
             $jugador = Jugadores::find($jugadores->id)
                         ->fill($request->input());
             if($request->hasFile('url_imagen')){
-                    $nombreArchivo = "img_jugadores";
+                    $nombreArchivo = "img_jugador";
                     $archivo_img = $nombreArchivo."_".time().'.'.$request["url_imagen"]->getClientOriginalExtension();
                     $path = public_path().'/images/jugadores/';
                     $request["url_imagen"]->move($path, $archivo_img);

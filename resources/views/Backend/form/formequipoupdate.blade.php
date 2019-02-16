@@ -41,6 +41,29 @@
                 @endif
               </div>
             </div>
+                <div class="col-md-4 col-sm-4">
+                  <h4 class="title {{ $errors->has('url_imagen') ? ' has-error' : '' }}">Subir Imagen</h4>
+                  <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail">
+                      <img id="preview-file" src="{{URL::to('/images')}}/equipos/{{$equipo->img}}" alt="...">
+                    </div>
+                    <div class="fileinput-preview fileinput-exists thumbnail" style=""></div>
+                    <div>
+                      <span class="btn btn-rose btn-round btn-file">
+                        <span class="fileinput-new no-existente">Buscar</span>
+                        <span class="fileinput-exists existente">Cambiar</span>
+                        <input id="imagenup" name="url_imagen" type="file" value="{{$equipo->img}}" href="{{$equipo->img}}" accept="image/png, .jpeg, .jpg, image/gif">
+                        @if ($errors->has('url_imagen'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('url_imagen') }}</strong>
+                            </span>
+                        @endif
+                      </span>
+                      <a href="#" class="btn btn-danger btn-round fileinput-exists quitarexistente" data-dismiss="fileinput"><i class="fa fa-times"></i>Quitar</a>
+                    </div>
+                  </div>
+                </div>
+              
           </div>
           <input class="btn btn-primary pull-right" type="submit" value="Modificar Equipo">
           <div class="clearfix"></div>
