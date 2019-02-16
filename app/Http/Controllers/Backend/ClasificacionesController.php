@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Clasificaciones;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class ClasificacionesController extends Controller
@@ -25,7 +27,11 @@ class ClasificacionesController extends Controller
      */
     public function create()
     {
-        //
+        $clasificaciones=Clasificaciones::select(DB::raw('id,descripcion, updated_at'))       
+        ->orderBy('updated_at','desc')
+        ->get();
+
+        return view('Backend.form.formclasificacion',['clasificaciones'=>$clasificaciones]);
     }
 
     /**
@@ -36,7 +42,12 @@ class ClasificacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clasificacion = new Clasificaciones();
+        $clasificacion->fill($request->input());
+        $clasificacion->id_usuario = Auth::id();
+        $clasificacion->save();
+    
+        return redirect()->route("formclasificacion");
     }
 
     /**
@@ -58,7 +69,15 @@ class ClasificacionesController extends Controller
      */
     public function edit(Clasificaciones $clasificaciones)
     {
-        //
+        $clasificacion = Clasificaciones::where('id', $clasificaciones->id)
+        ->first();
+
+        if (!$clasificacion){
+        return view('Backend.index');
+        }
+        else{     
+        return view('Backend.form.formclasificacionupdate',['clasificacion'=>$clasificacion]);
+        }
     }
 
     /**
@@ -70,7 +89,19 @@ class ClasificacionesController extends Controller
      */
     public function update(Request $request, Clasificaciones $clasificaciones)
     {
-        //
+        $clasificacion = Clasificaciones::where('id', $clasificaciones->id)
+                ->first();
+        if (!$clasificacion){
+        return view('Backend.index');
+        }
+        else{
+
+        $clasificacion = Clasificaciones::find($clasificaciones->id)
+                ->fill($request->input());
+        $clasificacion->id_usuario = Auth::id();
+        $clasificacion->save();
+        return redirect()->route("formclasificacion");
+        }      
     }
 
     /**
@@ -81,6 +112,7 @@ class ClasificacionesController extends Controller
      */
     public function destroy(Clasificaciones $clasificaciones)
     {
-        //
+        Clasificaciones::where('id', $clasificaciones->id)->delete();
+        return redirect()->route("formclasificacion");
     }
 }

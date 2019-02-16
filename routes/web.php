@@ -215,26 +215,26 @@ Route::group(['middleware' => 'auth'], function()
   //Agregar registro de Posiciones
   Route::post('/admin/posiciones', ['as' => 'ingresarposicion', 'uses'=>'Backend\PosicionesController@store']);
   //Buscar Posicion ya registrada
-  Route::get('/admin/posiciones/u{id}', ['as' => 'buscarposicion', 'uses'=>'Backend\PosicionesController@edit']);
+  Route::get('/admin/posiciones/u{posiciones}', ['as' => 'buscarposicion', 'uses'=>'Backend\PosicionesController@edit']);
   //Actualizar Posicion ya registrada
-  Route::post('/admin/posiciones/u{id}', ['as' => 'actualizarposicion', 'uses'=>'Backend\PosicionesController@update']);
+  Route::post('/admin/posiciones/u{posiciones}', ['as' => 'actualizarposicion', 'uses'=>'Backend\PosicionesController@update']);
   //Mostrar formulario de Posiciones
   Route::get('/admin/nuevaposicion', ['as' => 'formposicion', 'uses'=>'Backend\PosicionesController@create']);
   //Eliminar registros de Posicion
-  Route::get('/admin/posiciones/r{id}', ['as' => 'eliminarposicion', 'uses'=>'Backend\PosicionesController@destroy']);
+  Route::get('/admin/posiciones/r{posiciones}', ['as' => 'eliminarposicion', 'uses'=>'Backend\PosicionesController@destroy']);
   //********************** FIN Posiciones ****************************************
 
      //********************** Clasificaciones ****************************************
   //Agregar registro de Clasificaciones
-  Route::post('/admin/clasificaciones', ['as' => 'ingresarclasificacion', 'uses'=>'Backend\ClasificacionesController@create']);
+  Route::post('/admin/clasificaciones', ['as' => 'ingresarclasificacion', 'uses'=>'Backend\ClasificacionesController@store']);
   //Buscar Clasificacion ya registrada
-  Route::get('/admin/clasificaciones/u{id}', ['as' => 'buscarclasificacion', 'uses'=>'Backend\ClasificacionesController@onesearch']);
+  Route::get('/admin/clasificaciones/u{clasificaciones}', ['as' => 'buscarclasificacion', 'uses'=>'Backend\ClasificacionesController@edit']);
   //Actualizar Clasificacion ya registrada
-  Route::post('/admin/clasificaciones/u{id}', ['as' => 'actualizarclasificacion', 'uses'=>'Backend\ClasificacionesController@update']);
+  Route::post('/admin/clasificaciones/u{clasificaciones}', ['as' => 'actualizarclasificacion', 'uses'=>'Backend\ClasificacionesController@update']);
   //Mostrar formulario de Clasificaciones
-  Route::get('/admin/nuevaclasificacion', ['as' => 'formclasificacion', 'uses'=>'Backend\ClasificacionesController@form']);
+  Route::get('/admin/nuevaclasificacion', ['as' => 'formclasificacion', 'uses'=>'Backend\ClasificacionesController@create']);
   //Eliminar registros de Clasificacion
-  Route::get('/admin/clasificaciones/r{id}', ['as' => 'eliminarclasificacion', 'uses'=>'Backend\ClasificacionesController@delete']);
+  Route::get('/admin/clasificaciones/r{clasificaciones}', ['as' => 'eliminarclasificacion', 'uses'=>'Backend\ClasificacionesController@destroy']);
   //********************** FIN Clasificaciones ****************************************
 
    //********************** preguntas ****************************************
