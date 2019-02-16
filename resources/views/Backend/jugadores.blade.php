@@ -29,11 +29,13 @@
                   <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
+                  <div class="table-responsive table-shopping">
                     <input id="mostra_vista" value="jugadores" hidden disabled>
                     <table class="table">
                       <thead class=" text-primary">
                         <tr><th>
+                            Foto
+                          </th><th>
                           Nombres
                         </th>
                         <th>
@@ -59,6 +61,11 @@
 
                         @foreach($jugadores as $jugador)
                         <tr>
+                          <td>
+                              <div class="img-container" style="border-collapse: collapse;">
+                                <img src="../images/jugadores/{{ $jugador->img }}" alt="...">
+                              </div>
+                          </td>
                           <td>
                               {{ $jugador->nombres }}
                           </td>

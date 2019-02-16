@@ -20,7 +20,7 @@ class JugadoresController extends Controller
      */
     public function index()
     {
-        $jugadores=Jugadores::select(DB::raw('jugadores.id, nombres,  IF (publico = "1", "Si", "No") as publico, equipos.descripcion as equipo, posiciones.descripcion as posicion, clasificaciones.descripcion as clasificacion, jugadores.updated_at'))
+        $jugadores=Jugadores::select(DB::raw('jugadores.id, nombres, jugadores.img,  IF (publico = "1", "Si", "No") as publico, equipos.descripcion as equipo, posiciones.descripcion as posicion, clasificaciones.descripcion as clasificacion, jugadores.updated_at'))
                             ->join('equipos', 'jugadores.id_equipo','=','equipos.id')
                             ->join('posiciones', 'jugadores.id_posicion','=','posiciones.id')
                             ->join('clasificaciones', 'jugadores.id_clasificacion','=','clasificaciones.id')
