@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // FRONTEND
+
+Route::get('/', 'Frontend\homeController@index')->name('/');
+Route::get('noticia', 'Frontend\homeController@noticia')->name('noticia');
+Route::get('noticia/detalle/{id}', 'Frontend\homeController@detalle')->name('detalle');
 
 
 
@@ -122,7 +126,6 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/admin/nuevocampo', ['as' => 'formcampo', 'uses'=>'Backend\CamposController@form']);
   //Eliminar registros de Campos
   Route::get('/admin/campos/r{id}', ['as' => 'eliminarcampo', 'uses'=>'Backend\CamposController@delete']);
-
   //********************** FIN CAMPOS ****************************************
 
   //********************** CATEGORIAS ****************************************
@@ -166,6 +169,75 @@ Route::group(['middleware' => 'auth'], function()
   //Eliminar registros de comentarios
   Route::get('/admin/comentarios/r{id}', ['as' => 'eliminarcomentario', 'uses'=>'Backend\ComentariosController@delete']);
   //********************** FIN comentarios ****************************************
+
+   //********************** Nosotros ****************************************
+  //Listar registros de Nosotros
+  Route::get('/admin/nosotros', ['as' => 'vernosotros', 'uses'=>'Backend\NosotrosController@index']);
+  //Agregar registro de Nosotros
+  Route::post('/admin/nosotros', ['as' => 'ingresarmiembro', 'uses'=>'Backend\NosotrosController@store']);
+  //Buscar miembro ya registrado
+  Route::get('/admin/nosotros/u{nosotros}', ['as' => 'buscarmiembro', 'uses'=>'Backend\NosotrosController@edit']);
+  //Actualizar Miembro ya registrado
+  Route::post('/admin/nosotros/u{nosotros}', ['as' => 'actualizarmiembro', 'uses'=>'Backend\NosotrosController@update']);
+  //Mostrar formulario de Nosotros
+  Route::get('/admin/nuevomiembro', ['as' => 'formmiembro', 'uses'=>'Backend\NosotrosController@create']);
+  //Eliminar registros de Nosotros
+  Route::get('/admin/nosotros/r{nosotros}', ['as' => 'eliminarmiembro', 'uses'=>'Backend\NosotrosController@destroy']);
+  //********************** FIN Nosotros ****************************************
+
+   //********************** JUGADORES ****************************************
+  //Listar registros de Jugadores
+  Route::get('/admin/jugadores', ['as' => 'verjugadores', 'uses'=>'Backend\JugadoresController@index']);
+  //Agregar registro de Jugadores
+  Route::post('/admin/jugadores', ['as' => 'ingresarjugador', 'uses'=>'Backend\JugadoresController@store']);
+  //Buscar jugador ya registrado
+  Route::get('/admin/jugadores/u{jugadores}', ['as' => 'buscarjugador', 'uses'=>'Backend\JugadoresController@edit']);
+  //Actualizar jugador ya registrado
+  Route::post('/admin/jugadores/u{jugadores}', ['as' => 'actualizarjugador', 'uses'=>'Backend\JugadoresController@update']);
+  //Mostrar formulario de Jugadores
+  Route::get('/admin/nuevojugador', ['as' => 'formjugador', 'uses'=>'Backend\JugadoresController@create']);
+  //Eliminar registros de Jugadores
+  Route::get('/admin/jugadores/r{jugadores}', ['as' => 'eliminarjugador', 'uses'=>'Backend\JugadoresController@destroy']);
+  //********************** FIN JUGADORES ****************************************
+
+ //********************** Equipos ****************************************
+  //Agregar registro de Equipos
+  Route::post('/admin/equipos', ['as' => 'ingresarequipo', 'uses'=>'Backend\EquiposController@store']);
+  //Buscar Equipo ya registrado
+  Route::get('/admin/equipos/u{equipos}', ['as' => 'buscarequipo', 'uses'=>'Backend\EquiposController@edit']);
+  //Actualizar Equipo ya registrado
+  Route::post('/admin/equipos/u{equipos}', ['as' => 'actualizarequipo', 'uses'=>'Backend\EquiposController@update']);
+  //Mostrar formulario de Equipos
+  Route::get('/admin/nuevoequipo', ['as' => 'formequipo', 'uses'=>'Backend\EquiposController@create']);
+  //Eliminar registros de Equipo
+  Route::get('/admin/equipos/r{equipos}', ['as' => 'eliminarequipo', 'uses'=>'Backend\EquiposController@destroy']);
+  //********************** FIN Equipos ****************************************
+
+   //********************** Posiciones ****************************************
+  //Agregar registro de Posiciones
+  Route::post('/admin/posiciones', ['as' => 'ingresarposicion', 'uses'=>'Backend\PosicionesController@store']);
+  //Buscar Posicion ya registrada
+  Route::get('/admin/posiciones/u{posiciones}', ['as' => 'buscarposicion', 'uses'=>'Backend\PosicionesController@edit']);
+  //Actualizar Posicion ya registrada
+  Route::post('/admin/posiciones/u{posiciones}', ['as' => 'actualizarposicion', 'uses'=>'Backend\PosicionesController@update']);
+  //Mostrar formulario de Posiciones
+  Route::get('/admin/nuevaposicion', ['as' => 'formposicion', 'uses'=>'Backend\PosicionesController@create']);
+  //Eliminar registros de Posicion
+  Route::get('/admin/posiciones/r{posiciones}', ['as' => 'eliminarposicion', 'uses'=>'Backend\PosicionesController@destroy']);
+  //********************** FIN Posiciones ****************************************
+
+     //********************** Clasificaciones ****************************************
+  //Agregar registro de Clasificaciones
+  Route::post('/admin/clasificaciones', ['as' => 'ingresarclasificacion', 'uses'=>'Backend\ClasificacionesController@store']);
+  //Buscar Clasificacion ya registrada
+  Route::get('/admin/clasificaciones/u{clasificaciones}', ['as' => 'buscarclasificacion', 'uses'=>'Backend\ClasificacionesController@edit']);
+  //Actualizar Clasificacion ya registrada
+  Route::post('/admin/clasificaciones/u{clasificaciones}', ['as' => 'actualizarclasificacion', 'uses'=>'Backend\ClasificacionesController@update']);
+  //Mostrar formulario de Clasificaciones
+  Route::get('/admin/nuevaclasificacion', ['as' => 'formclasificacion', 'uses'=>'Backend\ClasificacionesController@create']);
+  //Eliminar registros de Clasificacion
+  Route::get('/admin/clasificaciones/r{clasificaciones}', ['as' => 'eliminarclasificacion', 'uses'=>'Backend\ClasificacionesController@destroy']);
+  //********************** FIN Clasificaciones ****************************************
 
    //********************** preguntas ****************************************
   //Listar registros de Preguntas

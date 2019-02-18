@@ -51,6 +51,16 @@ class ConfigurarController extends Controller
         $meta_name = Comun::where('name', 'meta_name')->update(['content'=>$request->meta_name]);
         $meta_url = Comun::where('name', 'meta_url')->update(['content'=>$request->meta_url]);
         $politica_privacidad = Comun::where('name', 'politica_privacidad')->update(['content'=>$request->politica_privacidad]);
+        $video_texto = Comun::where('name', 'video_texto')->update(['content'=>$request->video_texto]);
+        if($request->hasFile('img_video')){
+            
+          $nombreArchivo = "img_video";
+          $archivo_img = $nombreArchivo."_".time().'.'.$request["img_video"]->getClientOriginalExtension();
+                  $path = public_path().'/images/img_video/';
+                  $request["img_video"]->move($path, $archivo_img);
+                  
+          $img = Comun::where('name', 'video_img')->update(['content'=>$archivo_img]);
+        }
 
         return redirect()->route('configuracion.index');
 

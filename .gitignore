@@ -3,6 +3,14 @@
 /public/storage
 /storage/*.key
 /vendor
+/vendor/*
+/public/images/comentarios/*
+/public/images/equipos/*
+/public/images/img_video/*
+/public/images/jugadores/*
+/public/images/nosotros/*
+/public/images/noticias/*
+/public/images/sliders/*
 /.idea
 /.vagrant
 /public/.sass-cache

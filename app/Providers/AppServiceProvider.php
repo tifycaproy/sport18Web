@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
        
         $comun= Comun::all();
 
-        foreach ($comun as $item) {
+       foreach ($comun as $item) {
             if ($item->name == 'title') {
               $title = $item->content;
             }
@@ -60,6 +60,15 @@ class AppServiceProvider extends ServiceProvider
              if ($item->name == 'politica_privacidad') {
               $politica_privacidad = $item->content;
             }
+            if ($item->name == 'video') {
+              $video = $item->content;
+            }
+            if ($item->name == 'video_texto') {
+              $video_texto = $item->content;
+            }
+             if ($item->name == 'video_img') {
+              $video_img = $item->content;
+            }
 
             
           }
@@ -75,7 +84,11 @@ class AppServiceProvider extends ServiceProvider
                         ,'meta_description'=>$meta_description
                         ,'meta_name'=>$meta_name
                         ,'meta_url'=>$meta_url
-                        ,'politica_privacidad'=>$politica_privacidad]);
+                        ,'politica_privacidad'=>$politica_privacidad
+                        ,'video'=>$video
+                        ,'video_img'=>$video_img
+                        ,'video_texto'=>$video_texto]);
+
 
         Schema::defaultStringLength(191);
     }

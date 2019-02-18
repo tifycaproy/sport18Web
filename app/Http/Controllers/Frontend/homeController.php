@@ -6,27 +6,40 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Slider;
 use App\Noticias;
-use App\Comentarios;
-use App\Categorias;
-use App\Servicios;
-use App\Secciones;
-use App\Formatos;
-use App\SeccionesCampos;
-use App\Campos;
-use App\TiposCampos;
-use App\Solicitantes;
-use App\Solicitud;
-use App\Preguntas;
-use App\Mail\Contacto;
-use App\Paises;
-use Mail;
+use App\Jugadores;
+use App\Nosotros;
+
 
 
 class homeController extends Controller{
    
+    public function index(){
 
+    	$sliders = Slider::where('publico', 1)->orderBy('posicion', 'asc')->get();
+
+    	$noticias = Noticias::where('publico',1)->orderBy('posicion', 'asc')->limit(2)->get();
+
+    	$jugadores = Jugadores::where('publico', 1)->limit(4)->get();
+
+    	$miembros = Nosotros::where('publico',1)->get();
+
+        return view('Frontend.index', compact('sliders','noticias', 'jugadores','miembros'));
+    }
+
+    public function noticia(){
+
+    	$noticias = Noticias::where('publico',1)->orderBy('posicion', 'asc')->limit(2)->get();
+    	return view('Frontend.noticias', compact('noticias'));	
+    }
+
+    public function detalle($id){
+
+    	$noticia = Noticias::where('id',$id)->first();
+    	return view('Frontend.detalle', compact('noticia'));	
+    }
 
 
 
 
 }
+

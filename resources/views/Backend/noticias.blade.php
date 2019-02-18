@@ -51,10 +51,10 @@
                             {{ $noticia->updated_at}}
                           </td>
                           <td class="td-actions">
-                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarnoticia',['id'=>$noticia->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Editar">
+                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarnoticia',['id'=>$noticia->id])}}'" class="btn  btn-link btn-sm" data-original-title="Editar">
                               <i class="material-icons">edit</i>
                             </button>
-                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarnoticia',['id'=>$noticia->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Remover">
+                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarnoticia',['id'=>$noticia->id])}}'" class="btn  btn-link btn-sm" data-original-title="Remover">
                               <i class="material-icons">close</i>
                             </button>
                           </td>
