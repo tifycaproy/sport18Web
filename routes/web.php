@@ -18,6 +18,8 @@
 // FRONTEND
 
 Route::get('/', 'Frontend\homeController@index')->name('/');
+Route::get('noticia', 'Frontend\homeController@noticia')->name('noticia');
+Route::get('noticia/detalle/{id}', 'Frontend\homeController@detalle')->name('detalle');
 
 
 

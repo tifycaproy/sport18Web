@@ -36,7 +36,7 @@ toolbarGroups : [
             <div class="col-md-3">                
               <div class="form-group bmd-form-group {{ $errors->has('nombre_representante') ? ' has-error' : '' }}">
                 {!! Form::label('nombre_representante', 'Nombres del Representante') !!}
-                <input type="text" name="nombre_representante" class="form-control" value="{{$jugador->nombre_representante}}" required autofocus>                
+                <input type="text" name="nombre_representante" class="form-control" value="{{$jugador->nombre_representante}}" autofocus>                
                 @if ($errors->has('nombre_representante'))
                     <span class="help-block">
                         <strong>{{ $errors->first('nombre_representante') }}</strong>
@@ -47,7 +47,7 @@ toolbarGroups : [
             <div class="col-md-3">
               <div class="form-group bmd-form-group {{ $errors->has('cedula_representante') ? ' has-error' : '' }}">
                 {!! Form::label('cedula_representante', 'Identificación') !!}
-                <input type="text" name="cedula_representante" class="form-control" value="{{$jugador->cedula_representante}}" required>
+                <input type="text" name="cedula_representante" class="form-control" value="{{$jugador->cedula_representante}}" >
                 @if ($errors->has('cedula_representante'))
                     <span class="help-block">
                         <strong>{{ $errors->first('cedula_representante') }}</strong>
@@ -58,7 +58,7 @@ toolbarGroups : [
             <div class="col-md-3">
                 <div class="form-group bmd-form-group {{ $errors->has('telefono_representante') ? ' has-error' : '' }}">
                   {!! Form::label('telefono_representante', 'Telefonos') !!}
-                  <input type="tel" name="telefono_representante" class="form-control" value="{{$jugador->telefono_representante}}" required>                
+                  <input type="tel" name="telefono_representante" class="form-control" value="{{$jugador->telefono_representante}}" >                
                   @if ($errors->has('telefono_representante'))
                       <span class="help-block">
                           <strong>{{ $errors->first('telefono_representante') }}</strong>
@@ -266,7 +266,7 @@ toolbarGroups : [
             <div class="col-md-3">                
               <div class="form-group bmd-form-group {{ $errors->has('facebook') ? ' has-error' : '' }}">
                 {!! Form::label('facebook', 'Facebook') !!}
-                <input type="text" name="facebook" class="form-control" value="{{$jugador->facebook}}" required>
+                <input type="text" name="facebook" class="form-control" value="{{$jugador->facebook}}" >
                 @if ($errors->has('facebook'))
                     <span class="help-block">
                         <strong>{{ $errors->first('facebook') }}</strong>
@@ -277,7 +277,7 @@ toolbarGroups : [
             <div class="col-md-3">
               <div class="form-group bmd-form-group {{ $errors->has('twiter') ? ' has-error' : '' }}">
                 {!! Form::label('twiter', 'Twitter') !!}
-                <input type="text" name="twiter" class="form-control" value="{{$jugador->twiter}}" required>
+                <input type="text" name="twiter" class="form-control" value="{{$jugador->twiter}}" >
                 @if ($errors->has('twiter'))
                     <span class="help-block">
                         <strong>{{ $errors->first('twiter') }}</strong>
@@ -288,7 +288,7 @@ toolbarGroups : [
             <div class="col-md-3">
                 <div class="form-group bmd-form-group {{ $errors->has('instagram') ? ' has-error' : '' }}">
                   {!! Form::label('instagram', 'Instagram') !!}
-                  <input type="tel" name="instagram" class="form-control" value="{{$jugador->instagram}}" required>
+                  <input type="tel" name="instagram" class="form-control" value="{{$jugador->instagram}}" >
                   @if ($errors->has('instagram'))
                       <span class="help-block">
                           <strong>{{ $errors->first('instagram') }}</strong>

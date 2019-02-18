@@ -36,7 +36,7 @@ toolbarGroups : [
             <div class="col-md-3">                
               <div class="form-group bmd-form-group {{ $errors->has('nombre_representante') ? ' has-error' : '' }}">
                 {!! Form::label('nombre_representante', 'Nombres del Representante') !!}
-                {!! Form::text('nombre_representante', null, ['class' => 'form-control' , 'required' => 'required', 'autofocus'=> 'autofocus']) !!}
+                {!! Form::text('nombre_representante', null, ['class' => 'form-control' , 'autofocus'=> 'autofocus']) !!}
 
                 @if ($errors->has('nombre_representante'))
                     <span class="help-block">
@@ -48,7 +48,7 @@ toolbarGroups : [
             <div class="col-md-3">
               <div class="form-group bmd-form-group {{ $errors->has('cedula_representante') ? ' has-error' : '' }}">
                 {!! Form::label('cedula_representante', 'Identificación') !!}
-                {!! Form::text('cedula_representante', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                {!! Form::text('cedula_representante', null, ['class' => 'form-control' ]) !!}
 
                 @if ($errors->has('cedula_representante'))
                     <span class="help-block">
@@ -60,7 +60,7 @@ toolbarGroups : [
             <div class="col-md-3">
                 <div class="form-group bmd-form-group {{ $errors->has('telefono_representante') ? ' has-error' : '' }}">
                   {!! Form::label('telefono_representante', 'Telefonos') !!}
-                  {!! Form::tel('telefono_representante', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                  {!! Form::tel('telefono_representante', null, ['class' => 'form-control' ]) !!}
   
                   @if ($errors->has('telefono_representante'))
                       <span class="help-block">
@@ -280,7 +280,7 @@ toolbarGroups : [
             <div class="col-md-3">                
               <div class="form-group bmd-form-group {{ $errors->has('facebook') ? ' has-error' : '' }}">
                 {!! Form::label('facebook', 'Facebook') !!}
-                {!! Form::text('facebook', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                {!! Form::text('facebook', null, ['class' => 'form-control']) !!}
 
                 @if ($errors->has('facebook'))
                     <span class="help-block">
@@ -292,7 +292,7 @@ toolbarGroups : [
             <div class="col-md-3">
               <div class="form-group bmd-form-group {{ $errors->has('twiter') ? ' has-error' : '' }}">
                 {!! Form::label('twiter', 'Twitter') !!}
-                {!! Form::text('twiter', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                {!! Form::text('twiter', null, ['class' => 'form-control' ]) !!}
 
                 @if ($errors->has('twiter'))
                     <span class="help-block">
@@ -304,7 +304,7 @@ toolbarGroups : [
             <div class="col-md-3">
                 <div class="form-group bmd-form-group {{ $errors->has('instagram') ? ' has-error' : '' }}">
                   {!! Form::label('instagram', 'Instagram') !!}
-                  {!! Form::tel('instagram', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                  {!! Form::tel('instagram', null, ['class' => 'form-control' ]) !!}
   
                   @if ($errors->has('instagram'))
                       <span class="help-block">
