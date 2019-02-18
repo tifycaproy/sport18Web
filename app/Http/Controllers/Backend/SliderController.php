@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Slider as Slider;
-use App\Servicios as Servicios;
-use App\Categorias as Categorias;
 
 
 class SliderController extends Controller
@@ -76,12 +74,10 @@ class SliderController extends Controller
             $posiciones_disponibles[$key]=$value->posicion;
           }
           $slider = DB::table('sliders')
-                         ->select(DB::raw('id, titulo, IF (publico = "1", "checked", "") as publico, servicio_id, contenido, contenido2, posicion, url_imagen,  created_at'))
+                         ->select(DB::raw('id, titulo, IF (publico = "1", "checked", "") as publico, contenido, contenido2, posicion, url_imagen,  created_at'))
                          ->where('id', $id)
                          ->first();
-                         $categorias = Categorias::get();
-                         $servicios = Servicios::get();
-          return view('Backend.form.formsliderupdate',['slider'=>$slider,'posiciones_disponibles'=>$posiciones_disponibles,'categorias'=>$categorias,'servicios'=>$servicios]);
+          return view('Backend.form.formsliderupdate',['slider'=>$slider,'posiciones_disponibles'=>$posiciones_disponibles]);
         }
 
     }
@@ -156,9 +152,7 @@ class SliderController extends Controller
       }
       $posiciones_disponibles[count($posiciones_registradas)]=count($posiciones_registradas)+1;
 
-      $categorias = Categorias::get();
-      $servicios = Servicios::get();
-        return view('Backend.form.formslider',['posiciones_disponibles'=>$posiciones_disponibles,'servicios'=>$servicios,'categorias'=>$categorias]);
+        return view('Backend.form.formslider',['posiciones_disponibles'=>$posiciones_disponibles]);
     }
 
 

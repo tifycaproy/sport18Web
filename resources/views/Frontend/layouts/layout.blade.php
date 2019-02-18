@@ -37,7 +37,7 @@
 		*************************************-->
 		<div id="tg-navigationm-mobile" class="tg-navigationm-mobile tg-navigation collapse navbar-collapse">
 			<span id="tg-close" class="tg-close fas fa-close"></span>
-			<div class="tg-colhalf">
+			{{-- <div class="tg-colhalf">
 				<ul>
 					<li class="active menu-item-has-children">
 						<a href="#">Main</a>
@@ -58,12 +58,12 @@
 					<li class="menu-item-has-children">
 						<a href="#">Match Results</a>
 						<ul class="tg-dropdown-menu">
-							<li><a href="matchresult.html">match result</a></li>
-							<li><a href="matchresultdetail.html">match result detail</a></li>
+							<li><a href="matchresult.html"></a></li>
+							<li><a href="matchresultdetail.html"></a></li>
 						</ul>
 					</li>
 				</ul>
-			</div>
+			</div> --}}
 			<div class="tg-colhalf">
 				<ul>
 					<li class="menu-item-has-children">
@@ -110,14 +110,14 @@
 					<div class="row">
 						<div class="tg-topbar tg-haslayout">
 							<nav id="tg-topaddnav" class="tg-topaddnav">
-								<div class="navbar-header">
+								{{-- <div class="navbar-header">
 									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-addnavigationm-mobile">
 										<i class="fas fa-arrow-right"></i>
 									</button>
-								</div>
+								</div> --}}
 								<div id="tg-addnavigationm-mobile" class="tg-addnavigationm-mobile collapse navbar-collapse">
 									<div class="tg-colhalf pull-right">
-										<nav class="tg-addnav">
+										{{-- <nav class="tg-addnav">
 											<ul>
 												<li><a href="javascript()" data-toggle="modal" data-target="#tg-login">login</a></li>
 												<li><a href="javascript()" data-toggle="modal" data-target="#tg-register">Register</a></li>
@@ -178,10 +178,10 @@
 													<a id="tg-btn-search" href="javascript:void(0)"><i class="fas fa-search"></i></a>
 												</li>
 											</ul>
-										</nav>
+										</nav> --}}
 									</div>
 									<div class="tg-colhalf">
-										<ul class="tg-socialicons">
+										{{-- <ul class="tg-socialicons">
 											<li>
 												<a href="#">
 													<i class="fab fa-facebook-f"></i>
@@ -207,7 +207,7 @@
 													<i class="fab fa-dribbble"></i>
 												</a>
 											</li>
-										</ul>
+										</ul> --}}
 									</div>
 								</div>
 							</nav>
@@ -218,11 +218,11 @@
 									<i class="fas fa-bars"></i>
 								</button>
 								<strong class="tg-logo">
-									<a href="index.html"><img src="images/logo.png" alt="image description"></a>
+									<a href="{{ route('/') }}"><img src="{{ asset('images/logo.png') }}" alt="image description"></a>
 								</strong>
 							</div>
 							<div id="tg-navigation" class="tg-navigation">
-								<div class="tg-colhalf">
+								{{-- <div class="tg-colhalf">
                                     <ul>
                                         <li class="active">
                                             <a href="#">Main</a>
@@ -248,25 +248,26 @@
                                             </ul>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="tg-colhalf">
+                                </div> --}}
+                                <div class="tg-colhalf" style="margin-left: 200px">
                                     <ul>
                                         <li>
-                                            <a href="#">fixtures</a>
-                                            <ul class="tg-dropdown-menu">
+                                            <a href="{{ route('/') }}">Inicio</a>
+                                           {{--  <ul class="tg-dropdown-menu">
                                                 <li><a href="fixtures.html">fixtures</a></li>
                                                 <li><a href="fixturedetail.html">fixture detail</a></li>
-                                            </ul>
+                                            </ul> --}}
                                         </li>
-                                        <li>
+                                       {{--  <li>
                                             <a href="#">pro soccer media</a>
                                             <ul class="tg-dropdown-menu">
                                                 <li><a href="soccermedia-1.html">pro soccer media1</a></li>
                                                 <li><a href="soccermedia-2.html">pro soccer media2</a></li>
                                             </ul>
-                                        </li>
-                                        <li><a href="contactus.html">Contact</a></li>
-                                        <li>
+                                        </li> --}}
+                                        <li><a href="{{ route('noticia') }}">Noticias</a></li>
+                                        <li><a href="contactus.html">Contacto</a></li>
+                                        {{-- <li>
                                             <a href="#"><i class=" fas fa-navicon"></i></a>
                                             <ul>
                                                 <li><a href="aboutus.html">about us</a></li>
@@ -279,7 +280,7 @@
                                                 <li><a href="404.html">404 error</a></li>
                                                 <li><a href="comming-soon.html">comming soon</a></li>
                                             </ul>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
 							</div>
@@ -299,28 +300,31 @@
 		*************************************-->
 		<footer id="tg-footer" class="tg-footer tg-haslayout">
 			<div class="tg-haslayout tg-footerinfobox">
-				<div class="tg-bgboxone"></div>
-				<div class="tg-bgboxtwo"></div>
+				<div class="tg-bgboxone" style="width: 100%"></div>
+				{{-- <div class="tg-bgboxtwo"></div> --}}
 				<div class="tg-footerinfo">
 					<div class="container">
 						<div class="row">
-							<div class="col-sm-4">
+							{{-- <div class="col-sm-4">
 								<div class="tg-footercol">
 									<div class="tg-posttitle">
 										<h3>signup newsletter</h3>
 									</div>
 									<div class="tg-description">
-										<p>Adipisicing elit, sed do eiusmod tempor incidunta utiai labore et dolore magna si aliqua quis.</p>
+										<p>@isset ($descripcion)
+
+										    {{ $descripcion }}
+										@endisset</p>
 									</div>
 									<form class="tg-form-newsletter">
 										<fieldset>
 											<div class="form-group">
 												<input type="email" class="form-control" name="email" placeholder="Email">
 											</div>
-											<button class="tg-btn" type="submit">signup</button>
+											<button class="tg-btn" type="submit">Registras</button>
 										</fieldset>
 									</form>
-									<div class="tg-posttitle">
+									 <div class="tg-posttitle">
 										<h3>popular tags</h3>
 									</div>
 									<div class="tg-tags">
@@ -333,93 +337,50 @@
 										<a class="tg-tag" href="#">tech</a>
 										<a class="tg-tag" href="#">fun time</a>
 										<a class="tg-tag" href="#">soccer</a>
-									</div>
+									</div> 
 								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="tg-footercol">
-									<div class="tg-posttitle">
-										<h3>Top products</h3>
-									</div>
-									<div class="tg-toprated">
-										<ul>
-											<li>
-												<figure>
-													<a href="#">
-														<img src="images/thumbnails/img-04.jpg" alt="image description">
-													</a>
-												</figure>
-												<div class="tg-productcontent">
-													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-													<span class="tg-price">Price: $67</span>
-												</div>
-											</li>
-											<li>
-												<figure>
-													<a href="#">
-														<img src="images/thumbnails/img-05.jpg" alt="image description">
-													</a>
-												</figure>
-												<div class="tg-productcontent">
-													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-													<span class="tg-price">Price: $67</span>
-												</div>
-											</li>
-											<li>
-												<figure>
-													<a href="#">
-														<img src="images/thumbnails/img-06.jpg" alt="image description">
-													</a>
-												</figure>
-												<div class="tg-productcontent">
-													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-													<span class="tg-price">Price: $67</span>
-												</div>
-											</li>
-											<li>
-												<figure>
-													<a href="#">
-														<img src="images/thumbnails/img-07.jpg" alt="image description">
-													</a>
-												</figure>
-												<div class="tg-productcontent">
-													<h4><a href="#">Smooth 3-Stripes Scarf</a></h4><span class="tg-stars"><span></span></span>
-													<span class="tg-price">Price: $67</span>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							</div> --}}
+							
 							<div class="col-sm-4">
 								<div class="tg-footercol">
 									<div class="tg-haslayout">
 										<strong class="tg-logo">
-											<a href="#">
-												<img src="images/logo2.png" alt="image description">
+											<a href="{{ route('/') }}">
+												<img style="width: 50%" src="{{ asset('images/logo_white.png') }}" alt="">
 											</a>
 										</strong>
 									</div>
 									<div class="tg-description">
-										<p>Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+										<p>@isset ($descripcion)
+
+										    {{ $descripcion }}
+										@endisset</p>
 									</div>
 									<ul class="tg-contactinfo">
 										<li>
 											<i class="fas fa-home"></i>
-											<address>123 Eccles Old Road, New Salford Road London, Uk, M6 7AF</address>
+											<address>@isset ($direccion)
+
+										    {{ $direccion }}
+										@endisset</address>
 										</li>
-										<li>
+										@isset ($email)
+										    <li>
 											<i class="fas fa-envelope-o"></i>
-											<a href="info@domain.com">info@domain.com</a>
+											<a href="{{ $email }}">{{ $email }}</a>
 										</li>
-										<li>
+										@endisset
+										@isset ($telefono)
+										  <li>
 											<i class="fas fa-phone"></i>
-											<span>+44 123 456 788 - 9</span>
-										</li>
+											<span>{{ $telefono }}</span>
+										</li>  
+										@endisset
+										
 									</ul>
-									<div class="tg-haslayout">
+									{{-- <div class="tg-haslayout">
 										<a class="tg-btn" href="#">read more</a>
-									</div>
+									</div> --}}
 								</div>
 							</div>
 						</div>
@@ -428,16 +389,12 @@
 			</div>
 			<div class="tg-footerbar">
 				<div class="container">
-					<span class="tg-copyright">&copy; 2016  |  All Rights Reserved</span>
+					<span class="tg-copyright">&copy; 2019  |  All Rights Reserved</span>
 					<nav class="tg-footernav">
 						<ul>
-							<li><a href="#">Main</a></li>
-							<li><a href="#">Team</a></li>
-							<li><a href="#">Buy Tickets</a></li>
-							<li><a href="#">Match Results</a></li>
-							<li><a href="#">Upcoming Matches</a></li>
-							<li><a href="#">Shop</a></li>
-							<li><a href="#">Contact</a></li>
+							<li><a href="{{ route('/') }}">Inicio</a></li>
+							<li><a href="{{ route('noticia') }}">Noticias</a></li>
+							<li><a href="">Contact</a></li>
 						</ul>
 					</nav>
 				</div>
