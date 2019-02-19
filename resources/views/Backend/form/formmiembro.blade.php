@@ -87,7 +87,7 @@ $(document).ready(function(){
             </div>
           </div>
 
-            <input class="btn btn-primary pull-right" id="submit" type="submit" value="Crear Miembro">
+            <input class="btn btn-primary pull-right" id="submit" type="submit" value="Guardar">
           <div class="clearfix"></div>
 {!! Form::close() !!}
         </div>

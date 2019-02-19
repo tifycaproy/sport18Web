@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/jugadores'))
 @section('content')
 
 <input id="mostra_vista" value="jugadores" hidden disabled>
@@ -338,7 +338,7 @@ toolbarGroups : [
             </div>
           </div>
 
-            <input class="btn btn-primary pull-right" id="submit" type="submit" value="Crear Jugador">
+            <input class="btn btn-primary pull-right" id="submit" type="submit" value="Guardar">
           <div class="clearfix"></div>
 {!! Form::close() !!}
         </div>

@@ -91,7 +91,7 @@ toolbarGroups : [
             </div>
           </div>
 
-            <input class="btn btn-primary pull-right" id="submit" type="submit" value="Crear Comentario">
+            <input class="btn btn-primary pull-right" id="submit" type="submit" value="Guardar">
           <div class="clearfix"></div>
 {!! Form::close() !!}
         </div>

@@ -12,56 +12,35 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/style_back.css') }}">
 </head>
 
-<body class="dark-edition">
-    @include('Backend.layout.menulogin')
-        <div class="wrapper wrapper-full-page">
-<div class="page-header login-page header-filter" filter-color="black" style="background-image: url('../../assets/img/login.jpg'); background-size: cover; background-position: top center;">
-  <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
-  <div class="container">
-    @yield('content')
+<body class="">
+  
+  <div class="">
+      <div class=""  >
+
+
+        <div class="container">
+          <h3 class="navbar-brand mt-5" style="" href=""><b>Panel Administrativo</b></h3>
+          @yield('content')
+        </div>
+
+
+        <footer class="footer" >
+          <div class="container">
+              <div class="copyright float-right">
+                  &copy;
+                  <script>
+                      document.write(new Date().getFullYear())
+                  </script>, hecho con <i class="material-icons">favorite</i> por
+                  <a href="" target="_blank">TIFYCA</a>.
+              </div>
+          </div>
+      </footer>
+
+      </div>
   </div>
-  <footer class="footer" >
-    <div class="container">
-        {{-- <nav class="float-left">
-          <ul>
-              <li>
-                  <a href="https://www.creative-tim.com">
-                      Creative Tim
-                  </a>
-              </li>
-              <li>
-                  <a href="https://creative-tim.com/presentation">
-                      About Us
-                  </a>
-              </li>
-              <li>
-                  <a href="http://blog.creative-tim.com">
-                      Blog
-                  </a>
-              </li>
-              <li>
-                  <a href="https://www.creative-tim.com/license">
-                      Licenses
-                  </a>
-              </li>
-          </ul>
-        </nav> --}}
-        <div class="copyright float-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>, hecho con <i class="material-icons">favorite</i> por
-            <a href="https://www.creative-tim.com" target="_blank">TIFYCA</a>.
-        </div>
-    </div>
-</footer>
-
-</div>
-
-
-        </div>
   <!--   Core JS Files   -->
   <script src="{{ asset('js/core/jquery.min.js') }}"></script>
   <script src="{{ asset('js/core/popper.min.js') }}"></script>

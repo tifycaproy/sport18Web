@@ -173,7 +173,7 @@ toolbarGroups : [
             </div>
           </div>
 
-            <input class="btn btn-primary pull-right" type="submit" value="Crear Nota">
+            <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
 {!! Form::close() !!}
         </div>

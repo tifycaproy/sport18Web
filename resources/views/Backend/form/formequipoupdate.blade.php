@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+ @section('link_back', url('admin/nuevoequipo'))
 @section('content')
 
 <input id="mostra_vista" value="jugadores" hidden disabled>
@@ -65,7 +65,7 @@
                 </div>
               
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Modificar Equipo">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 

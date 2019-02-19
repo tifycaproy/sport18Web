@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/jugadores'))
 @section('content')
 
 <input id="mostra_vista" value="jugadores" hidden disabled>
@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header card-header-primary">
-          <h4 class="card-title">Crear Equipo</h4>
+          <h4 class="card-title">Crear Posición</h4>
           <p class="card-category">Complete todos los datos</p>
           <a href="{{ route('formjugador')}}" class="card-category">
           <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Crear Equipo">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 
@@ -79,10 +79,10 @@
                     {{ $posicion->updated_at}}
                   </td>
                   <td class="td-actions">
-                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarposicion',['id'=>$posicion->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Editar">
+                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarposicion',['id'=>$posicion->id])}}'" class="btn  btn-link btn-sm" data-original-title="Editar">
                       <i class="material-icons">edit</i>
                     </button>
-                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarposicion',['id'=>$posicion->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Remover">
+                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarposicion',['id'=>$posicion->id])}}'" class="btn  btn-link btn-sm" data-original-title="Remover">
                       <i class="material-icons">close</i>
                     </button>
                   </td>

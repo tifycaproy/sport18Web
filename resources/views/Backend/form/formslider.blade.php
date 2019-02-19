@@ -61,7 +61,7 @@
               </div>
             </div>
            </div>
-           <div class="col-md-6">
+          {{--  <div class="col-md-6">
            <div class="form-group {{ $errors->has('contenido2') ? ' has-error' : '' }}">
              {!! Form::label('contenido2','Otro Contenido (Opcional)') !!}
              <div class="form-group bmd-form-group">
@@ -73,7 +73,7 @@
                @endif
              </div>
            </div>
-          </div>
+          </div> --}}
           </div>
 
           <div class="row">
@@ -122,7 +122,7 @@
             </div>
           </div>
 
-          <input class="btn btn-primary pull-right" type="submit" value="Crear Slider">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
         </div>
@@ -157,19 +157,19 @@
 
 <script>
 $(document).ready(function(){
-CKEDITOR.replace( 'editor',{
-uiColor:"#DCDCDC",
-toolbarGroups : [
-  { name: 'basicstyles', groups: [ 'basicstyles'] },
-  { name: 'paragraph',   groups: [ 'list', 'indent', 'align', 'bidi' ] },
-  { name: 'document',    groups: [ 'doctools' ] },
-  { name: 'editing',     groups: ['spellchecker' ] },
-  { name: 'styles' },
-  { name: 'colors' },
-  { name: 'tools' }
-]
-// removeButtons: 'Cut,Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript'
-});
+// CKEDITOR.replace( 'editor',{
+// uiColor:"#DCDCDC",
+// toolbarGroups : [
+//   { name: 'basicstyles', groups: [ 'basicstyles'] },
+//   { name: 'paragraph',   groups: [ 'list', 'indent', 'align', 'bidi' ] },
+//   { name: 'document',    groups: [ 'doctools' ] },
+//   { name: 'editing',     groups: ['spellchecker' ] },
+//   { name: 'styles' },
+//   { name: 'colors' },
+//   { name: 'tools' }
+// ]
+// // removeButtons: 'Cut,Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript'
+// });
 CKEDITOR.replace( 'editor2',{
 uiColor:"#DCDCDC",
 toolbarGroups : [
