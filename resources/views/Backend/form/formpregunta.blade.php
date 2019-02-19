@@ -84,7 +84,7 @@
               </div>
             </div>
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Crear Pregunta">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
         </div>

@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/usuarios'))
 @section('content')
 
 <input id="mostra_vista" value="usuarios" hidden disabled>
@@ -70,7 +70,7 @@
                         </div>
                       </div>
                     </div>
-                    <button class="btn btn-primary pull-right" type="submit">Crear Usuario</button>
+                    <button class="btn btn-primary pull-right" type="submit">Guardar</button>
                     <div class="clearfix"></div>
                  {!! Form::close() !!}
                 </div>

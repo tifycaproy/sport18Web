@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+ @section('link_back', url('admin/jugadores'))
 @section('content')
 
 <input id="mostra_vista" value="jugadores" hidden disabled>
@@ -64,7 +64,7 @@
                 </div>
               
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Crear Equipo">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 
@@ -101,10 +101,10 @@
                     {{ $equipo->updated_at}}
                   </td>
                   <td class="td-actions">
-                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarequipo',['id'=>$equipo->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Editar">
+                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarequipo',['id'=>$equipo->id])}}'" class="btn btn-white btn-sm" data-original-title="Editar">
                       <i class="material-icons">edit</i>
                     </button>
-                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarequipo',['id'=>$equipo->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Remover">
+                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarequipo',['id'=>$equipo->id])}}'" class="btn btn-white btn-sm" data-original-title="Remover">
                       <i class="material-icons">close</i>
                     </button>
                   </td>

@@ -19,7 +19,7 @@ class homeController extends Controller{
 
     	$noticias = Noticias::where('publico',1)->orderBy('posicion', 'asc')->limit(2)->get();
 
-    	$jugadores = Jugadores::where('publico', 1)->limit(4)->get();
+    	$jugadores = Jugadores::Index()->limit(4)->get();
 
     	$miembros = Nosotros::where('publico',1)->get();
 

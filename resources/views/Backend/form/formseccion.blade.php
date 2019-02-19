@@ -78,7 +78,7 @@
             </div>
             @endforeach
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Crear Sección">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 

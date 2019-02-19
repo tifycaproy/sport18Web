@@ -92,7 +92,7 @@ toolbarGroups : [
               </div>
             </div>
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Modificar Comentario">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 

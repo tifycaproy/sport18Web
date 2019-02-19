@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/jugadores'))
 @section('content')
 
 <input id="mostra_vista" value="jugadores" hidden disabled>
@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Crear Clasificación">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 
@@ -79,10 +79,10 @@
                     {{ $clasificacion->updated_at}}
                   </td>
                   <td class="td-actions">
-                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarclasificacion',['id'=>$clasificacion->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Editar">
+                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarclasificacion',['id'=>$clasificacion->id])}}'" class="btn btn-link btn-sm" data-original-title="Editar">
                       <i class="material-icons">edit</i>
                     </button>
-                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarclasificacion',['id'=>$clasificacion->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Remover">
+                    <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarclasificacion',['id'=>$clasificacion->id])}}'" class="btn btn-link btn-sm" data-original-title="Remover">
                       <i class="material-icons">close</i>
                     </button>
                   </td>

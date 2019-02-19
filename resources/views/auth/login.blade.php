@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button style="background-color: #c20f0f" type="submit" class="btn btn-primary">
+                                <button style="background-color: #0000CD" type="submit" class="btn btn-primary">
                                     Iniciar
                                 </button>
 {{-- 
