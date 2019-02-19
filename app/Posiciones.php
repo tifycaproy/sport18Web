@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Posiciones extends Model
 {
-    protected $table = 'Posiciones';
+    protected $table = 'posiciones';
     protected $fillable = ['descripcion'];
     protected $guarded = ['id'];
 }
