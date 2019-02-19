@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back_none', 'd-none')
 @section('content')
 
 <div class="col-md-12">
@@ -45,10 +45,10 @@
                             {{ $comentario->updated_at}}
                           </td>
                           <td class="td-actions">
-                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarcomentario',['id'=>$comentario->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Editar">
+                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('buscarcomentario',['id'=>$comentario->id])}}'" class="btn btn-link btn-sm" data-original-title="Editar">
                               <i class="material-icons">edit</i>
                             </button>
-                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarcomentario',['id'=>$comentario->id])}}'" class="btn btn-white btn-link btn-sm" data-original-title="Remover">
+                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarcomentario',['id'=>$comentario->id])}}'" class="btn btn-link btn-sm" data-original-title="Remover">
                               <i class="material-icons">close</i>
                             </button>
                           </td>

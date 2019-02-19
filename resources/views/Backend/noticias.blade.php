@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back_none', 'd-none')
 @section('content')
 
 <div class="col-md-12">
@@ -56,6 +56,9 @@
                             </button>
                             <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('eliminarnoticia',['id'=>$noticia->id])}}'" class="btn  btn-link btn-sm" data-original-title="Remover">
                               <i class="material-icons">close</i>
+                            </button>
+                            <button type="button" rel="tooltip" title="" onclick="location.href='{{ route('galeria',[2,$noticia->id])}}'" class="btn btn-link btn-sm" data-original-title="Galería">
+                              <i class="material-icons">add_a_photo</i>
                             </button>
                           </td>
                         </tr>

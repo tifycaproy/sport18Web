@@ -295,6 +295,16 @@ Route::group(['middleware' => 'auth'], function()
   // CONFIGURACION
 
   Route::resource('configuracion', 'Backend\Configuracion\ConfigurarController');
+
+  // GALERIA
+  Route::get('admin/galeria/index/{tipo}/{id}', 'Backend\GaleriaController@index')->name('galeria');
+  Route::get('admin/galeria/create/{tipo}/{id}', 'Backend\GaleriaController@create')->name('galeria.create');
+  Route::post('admin/galeria/store', 'Backend\GaleriaController@store')->name('galeria.store');
+  Route::post('admin/galeria/update', 'Backend\GaleriaController@update')->name('galeria.update');
+  Route::get('admin/galeria/edit/{tipo}/{id}', 'Backend\GaleriaController@edit')->name('galeria.edit');
+  Route::get('admin/galeria/destroy/{tipo}/{jugador}/{id}', 'Backend\GaleriaController@destroy')->name('galeria.destroy');
+
+
 });
 
 
