@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/slider'))
 @section('content')
 
 <input id="mostra_vista" value="slider" hidden disabled>

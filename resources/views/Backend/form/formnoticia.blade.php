@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/noticias'))
 @section('content')
 
 <input id="mostra_vista" value="noticias" hidden disabled>
