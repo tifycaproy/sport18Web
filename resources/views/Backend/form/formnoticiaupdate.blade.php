@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/noticias'))
 @section('content')
 
 <input id="mostra_vista" value="noticias" hidden disabled>
@@ -176,7 +176,7 @@ toolbarGroups : [
             </div>
           </div>
 
-          <input class="btn btn-primary pull-right" type="submit" value="Modificar Noticia">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
         </form>
         </div>

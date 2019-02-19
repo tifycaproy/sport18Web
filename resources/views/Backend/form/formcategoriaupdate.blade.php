@@ -42,7 +42,7 @@
               </div>
             </div>            
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Modificar Categoría">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 
