@@ -790,6 +790,19 @@
 		height: 300px;
 		overflow: hidden;
 	}
+
+	.tg-bgpattrant{
+
+		/*height: 800px;*/
+	}
+
+	.tg-description div h4 {
+		font-size: 15px;
+	}
+	.tg-section-heading{
+		font-size: 3rem !important;
+	}
+
 	.tg-home-slider .tg-btn-next {right: 0;}
 	.tg-home-slider .tg-btn-prev {left: 0;}
 	.tg-slider-content{
@@ -956,7 +969,7 @@
 	.tg-upcomingmatch-counter .tg-btnbox .tg-btn:first-child{ float:left;}
 	.tg-section-name{left:5px;}
 	.tg-section-heading h2 {
-		font-size: 15px;
+		font-size: 20px;
 		line-height: 20px;
 	}
 	.tg-matchhover {padding: 20px;}
