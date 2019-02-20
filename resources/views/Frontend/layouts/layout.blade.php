@@ -41,6 +41,7 @@
 				<ul>
 					<li><a href="{{ route('/') }}">Inicio</a></li>
 					<li><a href="{{ route('noticia') }}">Noticias</a></li>
+					<li><a href="{{ route('jugadores') }}">Jugadores</a></li>
 				</ul>
 			</div>
 		</div>
@@ -212,7 +213,8 @@
                                             </ul>
                                         </li> --}}
                                         <li><a href="{{ route('noticia') }}">Noticias</a></li>
-                                        <li><a href="#">Contacto</a></li>
+                                         <li><a href="{{ route('jugadores') }}">Jugadores</a></li>
+
                                         {{-- <li>
                                             <a href="#"><i class=" fas fa-navicon"></i></a>
                                             <ul>
@@ -360,8 +362,10 @@
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('js/customScrollbar.min.js')}}"></script>
 	<script src="{{asset('js/owl.carousel.js')}}"></script>
+
 	{{-- <script src="{{asset('js/isotope.pkgd.js')}}"></script> --}}
 	{{-- <script src="{{asset('js/prettyPhoto.js')}}"></script> --}}
+
 	<script src="{{asset('js/swiper.min.js')}}"></script>
 	<script src="{{asset('js/jquery-ui.js')}}"></script>
 	<script src="{{asset('js/countTo.js')}}"></script>
