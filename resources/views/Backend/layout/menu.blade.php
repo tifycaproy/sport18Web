@@ -38,6 +38,13 @@
               <p>Jugadores</p>
             </a>
           </li> 
+          <li id="jugadores" class="nav-item">
+            <a class="nav-link disabled" href="{{ route('verestadisticas')}}">
+              <i class="material-icons">face</i>
+              <p>Estadisticas</p>
+            </a>
+            
+          </li> 
 
           @if(Auth::user()->hasRole('admin'))
           <li id="usuarios" class="nav-item">
