@@ -360,14 +360,14 @@
 
     <script src="{{asset('js/jquery-library.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
-	{{-- <script src="{{asset('js/customScrollbar.min.js')}}"></script> --}}
+	<script src="{{asset('js/customScrollbar.min.js')}}"></script>
 	<script src="{{asset('js/owl.carousel.js')}}"></script>
-	{{-- <script src="{{asset('js/isotope.pkgd.js')}}"></script> --}}
-	{{-- <script src="{{asset('js/prettyPhoto.js')}}"></script> --}}
-	{{-- <script src="{{asset('js/swiper.min.js')}}"></script> --}}
-	{{-- <script src="{{asset('js/jquery-ui.js')}}"></script> --}}
-	{{-- <script src="{{asset('js/countTo.js')}}"></script> --}}
-	{{-- <script src="{{asset('js/appear.js')}}"></script> --}}
+	<script src="{{asset('js/isotope.pkgd.js')}}"></script>
+	<script src="{{asset('js/prettyPhoto.js')}}"></script>
+	<script src="{{asset('js/swiper.min.js')}}"></script>
+	<script src="{{asset('js/jquery-ui.js')}}"></script>
+	<script src="{{asset('js/countTo.js')}}"></script>
+	<script src="{{asset('js/appear.js')}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
 
 
