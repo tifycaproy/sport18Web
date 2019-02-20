@@ -7,7 +7,7 @@
 		
 	</div>
 </div> --}}
-@if (count($galeriaPortada) > 0)
+@if ($galeriaPortada)
 @php
 
 	# code...

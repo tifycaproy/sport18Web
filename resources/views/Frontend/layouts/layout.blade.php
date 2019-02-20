@@ -15,7 +15,7 @@
 	{{-- <link rel="stylesheet" href="{{asset('css/normalize.css')}}"> --}}
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/transitions.css')}}">
-	{{-- <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}"> --}}
+	<link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
 	<link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
 	<link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
 	<link rel="stylesheet" href="{{asset('css/animate.css')}}">
@@ -364,7 +364,7 @@
 	<script src="{{asset('js/owl.carousel.js')}}"></script>
 
 	{{-- <script src="{{asset('js/isotope.pkgd.js')}}"></script> --}}
-	{{-- <script src="{{asset('js/prettyPhoto.js')}}"></script> --}}
+	<script src="{{asset('js/prettyPhoto.js')}}"></script>
 
 	<script src="{{asset('js/swiper.min.js')}}"></script>
 	<script src="{{asset('js/jquery-ui.js')}}"></script>
