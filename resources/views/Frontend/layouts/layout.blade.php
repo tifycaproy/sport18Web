@@ -12,21 +12,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+	{{-- <link rel="stylesheet" href="{{asset('css/normalize.css')}}"> --}}
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{asset('css/transitions.css')}}">
-	<link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
+	{{-- <link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}"> --}}
 	<link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
-	<link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+	{{-- <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}"> --}}
 	<link rel="stylesheet" href="{{asset('css/animate.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
 	<link rel="stylesheet" href="{{asset('css/customScrollbar.css')}}">
-	<link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+	{{-- <link rel="stylesheet" href="{{asset('css/icomoon.css')}}"> --}}
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 	<link rel="stylesheet" href="{{asset('css/color.css')}}">
 	<link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-	<script src="{{asset('js/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+	{{-- <script src="{{asset('js/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script> --}}
 </head>
 
 <body>
@@ -360,14 +360,14 @@
 
     <script src="{{asset('js/jquery-library.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
-	<script src="{{asset('js/customScrollbar.min.js')}}"></script>
+	{{-- <script src="{{asset('js/customScrollbar.min.js')}}"></script> --}}
 	<script src="{{asset('js/owl.carousel.js')}}"></script>
-	<script src="{{asset('js/isotope.pkgd.js')}}"></script>
-	<script src="{{asset('js/prettyPhoto.js')}}"></script>
-	<script src="{{asset('js/swiper.min.js')}}"></script>
-	<script src="{{asset('js/jquery-ui.js')}}"></script>
-	<script src="{{asset('js/countTo.js')}}"></script>
-	<script src="{{asset('js/appear.js')}}"></script>
+	{{-- <script src="{{asset('js/isotope.pkgd.js')}}"></script> --}}
+	{{-- <script src="{{asset('js/prettyPhoto.js')}}"></script> --}}
+	{{-- <script src="{{asset('js/swiper.min.js')}}"></script> --}}
+	{{-- <script src="{{asset('js/jquery-ui.js')}}"></script> --}}
+	{{-- <script src="{{asset('js/countTo.js')}}"></script> --}}
+	{{-- <script src="{{asset('js/appear.js')}}"></script> --}}
 	<script src="{{asset('js/main.js')}}"></script>
 
 

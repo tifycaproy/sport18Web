@@ -253,7 +253,7 @@
 																
 															</div>
 
-															<div class="col-sm-12 mt-5 mb-5" ">
+															<div class="col-sm-12  mb-5">
 																@isset ( $jugadores[$i]->facebook)
 																    <a href="" title="" class="red-icon"><i class="fab fa-facebook"></i></a>
 																@endisset
@@ -263,12 +263,14 @@
 																@isset ( $jugadores[$i]->instagram)
 																    <a href="" title="" class="red-icon"><i class="fab fa-instagram"></i></a>
 																@endisset
+															
+																<div class="tg-btnbox">
+																	<a class="tg-btn " href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
+																</div>
 															</div>
 														</div>
 														
-														<div class="tg-btnbox mt-5">
-															<a class="tg-btn mt-5" href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
-														</div>
+														
 													</div>
 												</div>
 											</div>
