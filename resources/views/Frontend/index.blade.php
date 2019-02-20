@@ -181,16 +181,7 @@
 													<div class="tg-contentbox">
 														<div class="tg-section-heading" ><h2 style="color: black; font-weight: bold">{{ $jugadores[$i]->nombres }}</h2></div>
 														<div class="tg-description row">
-															<div class="col-sm-6">
-																<h4><b>Equipo:</b> {{ $jugadores[$i]->equipo }}</h4>
-																<h4><b>Posición:</b> {{ $jugadores[$i]->posicion }}</h4>
-																<h4><b>Clasificación:</b> {{ $jugadores[$i]->clasificacion }}</h4>
-																<h4><b>Trayectoria:</b> {{ $jugadores[$i]->trayectoria }}</h4>
-																<div class="col-sm-12 mt-5 mb-5 " style="text-align: center;">
-																	<img src="{{ asset('images/equipos') }}/{{ $jugadores[$i]->logo_equipo }}" width="50%" class="mx-auto" alt="">
-																</div>
-																
-															</div>
+															
 															<div class="col-sm-6">
 																<h4><b>Fecha de Nacimiento:</b> {{ $jugadores[$i]->fecha_nacimiento }}</h4>
 																<h4><b>Lugar de Nacimiento:</b> {{ $jugadores[$i]->lugar_nacimiento }}</h4>
@@ -198,10 +189,29 @@
 																<h4><b>Peso:</b> {{ $jugadores[$i]->peso }}</h4>
 																<h4><b>Altura:</b> {{ $jugadores[$i]->altura }}</h4>
 															</div>
+															<div class="col-sm-6">
+																<h4><b>Equipo:</b> {{ $jugadores[$i]->equipo }} <img src="{{ asset('images/equipos') }}/{{ $jugadores[$i]->logo_equipo }}" width="15%" class="mx-auto" alt=""></h4>
+																<h4><b>Posición:</b> {{ $jugadores[$i]->posicion }}</h4>
+																<h4><b>Clasificación:</b> {{ $jugadores[$i]->clasificacion }}</h4>
+																<h4><b>Trayectoria:</b> {{ $jugadores[$i]->trayectoria }}</h4>
+																
+																
+															</div>
+															<div class="col-sm-12 mt-5 mb-5" ">
+																@isset ( $jugadores[$i]->facebook)
+																    <a href="" title="" class="red-icon"><i class="fab fa-facebook"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->twitter)
+																    <a href="" title="" class="red-icon"><i class="fab fa-twitter"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->instagram)
+																    <a href="" title="" class="red-icon"><i class="fab fa-instagram"></i></a>
+																@endisset
+															</div>
 														</div>
 														
-														<div class="tg-btnbox">
-															<a class="tg-btn" href="#"><span>Leer Más</span></a>
+														<div class="tg-btnbox mt-1">
+															<a class="tg-btn mt-5" href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
 														</div>
 													</div>
 												</div>
@@ -231,15 +241,7 @@
 														<div class="tg-section-heading" ><h2 style="color: black; font-weight: bold">{{ $jugadores[$i]->nombres }}</h2></div>
 														
 														<div class="tg-description row">
-															<div class="col-sm-6">
-																<h4><b>Equipo:</b> {{ $jugadores[$i]->equipo }}</h4>
-																<h4><b>Posición:</b> {{ $jugadores[$i]->posicion }}</h4>
-																<h4><b>Clasificación:</b> {{ $jugadores[$i]->clasificacion }}</h4>
-																<h4><b>Trayectoria:</b> {{ $jugadores[$i]->trayectoria }}</h4>
-																<div class="col-sm-12 mt-5 mb-5 " style="text-align: center;">
-																	<img src="{{ asset('images/equipos') }}/{{ $jugadores[$i]->logo_equipo }}" width="50%" class="mx-auto" alt="">
-																</div>
-															</div>
+															
 															<div class="col-sm-6">
 																<h4><b>Fecha de Nacimiento:</b> {{ $jugadores[$i]->fecha_nacimiento }}</h4>
 																<h4><b>Lugar de Nacimiento:</b> {{ $jugadores[$i]->lugar_nacimiento }}</h4>
@@ -247,10 +249,29 @@
 																<h4><b>Peso:</b> {{ $jugadores[$i]->peso }}</h4>
 																<h4><b>Altura:</b> {{ $jugadores[$i]->altura }}</h4>
 															</div>
+															<div class="col-sm-6">
+																<h4><b>Equipo:</b> {{ $jugadores[$i]->equipo }} <img src="{{ asset('images/equipos') }}/{{ $jugadores[$i]->logo_equipo }}" width="15%" class="mx-auto" alt=""></h4>
+																<h4><b>Posición:</b> {{ $jugadores[$i]->posicion }}</h4>
+																<h4><b>Clasificación:</b> {{ $jugadores[$i]->clasificacion }}</h4>
+																<h4><b>Trayectoria:</b> {{ $jugadores[$i]->trayectoria }}</h4>
+																
+															</div>
+
+															<div class="col-sm-12 mt-5 mb-5" ">
+																@isset ( $jugadores[$i]->facebook)
+																    <a href="" title="" class="red-icon"><i class="fab fa-facebook"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->twitter)
+																    <a href="" title="" class="red-icon"><i class="fab fa-twitter"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->instagram)
+																    <a href="" title="" class="red-icon"><i class="fab fa-instagram"></i></a>
+																@endisset
+															</div>
 														</div>
 														
-														<div class="tg-btnbox">
-															<a class="tg-btn" href="#"><span>Leer Más</span></a>
+														<div class="tg-btnbox mt-5">
+															<a class="tg-btn mt-5" href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
 														</div>
 													</div>
 												</div>
