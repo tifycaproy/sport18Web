@@ -33,7 +33,9 @@ class EstadisticasController extends Controller
      */
     public function create()
     {
-        $jugadores = Jugadores::pluck('nombres','id');           
+        
+        $jugadores_estadisticas = Estadisticas::pluck('id_jugador')->toArray();        
+        $jugadores = Jugadores::whereNotIn('id',$jugadores_estadisticas)->pluck('nombres','id');     
         return view('Backend.form.formestadistica',['jugadores'=>$jugadores]);
     }
 
