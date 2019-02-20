@@ -38,9 +38,9 @@
               <p>Jugadores</p>
             </a>
           </li> 
-          <li id="jugadores" class="nav-item">
+          <li id="estadisticas" class="nav-item">
             <a class="nav-link disabled" href="{{ route('verestadisticas')}}">
-              <i class="material-icons">face</i>
+              <i class="material-icons">pie_chart</i>
               <p>Estadisticas</p>
             </a>
             

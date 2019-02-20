@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Estadisticas;
+use App\Jugadores;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class EstadisticasController extends Controller
@@ -15,7 +18,12 @@ class EstadisticasController extends Controller
      */
     public function index()
     {
-        //
+        $estadisticas=Estadisticas::select(DB::raw('estadisticas.id, id_jugador, jugadores.img, jugadores.nombres, pjugados, pganados, pperdidos, pempatados, goles, mj, v_a, amarilla, roja, titular, suplente, convocatoria, estadisticas.updated_at'))
+                            ->join('jugadores', 'estadisticas.id_jugador','=','jugadores.id')
+                            ->orderBy('estadisticas.updated_at','desc')
+                            ->get();
+   
+    return view('Backend.estadisticas',['estadisticas'=>$estadisticas]);
     }
 
     /**
@@ -25,7 +33,8 @@ class EstadisticasController extends Controller
      */
     public function create()
     {
-        //
+        $jugadores = Jugadores::pluck('nombres','id');           
+        return view('Backend.form.formestadistica',['jugadores'=>$jugadores]);
     }
 
     /**
@@ -36,7 +45,12 @@ class EstadisticasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estadistica = new Estadisticas();
+        $estadistica->fill($request->input());  
+        $estadistica->role_user_id = Auth::id();
+        $estadistica->save();
+
+        return redirect()->route("verestadisticas");
     }
 
     /**
@@ -58,7 +72,19 @@ class EstadisticasController extends Controller
      */
     public function edit(Estadisticas $estadisticas)
     {
-        //
+        $estadistica = Estadisticas::where('id', $estadisticas->id)
+        ->first();
+
+        if (!$estadistica){
+        return view('Backend.index');
+        }
+        else{
+        $estadistica = Estadisticas::select(DB::raw('estadisticas.id, id_jugador, jugadores.img, jugadores.nombres, pjugados, pganados, pperdidos, pempatados, goles, mj, v_a, amarilla, roja, titular, suplente, convocatoria, estadisticas.updated_at'))
+                        ->join('jugadores', 'estadisticas.id_jugador','=','jugadores.id')
+                        ->where('estadisticas.id', $estadisticas->id)
+                    ->first();        
+        return view('Backend.form.formestadisticaupdate',['estadistica'=>$estadistica]);
+        }
     }
 
     /**
@@ -70,7 +96,19 @@ class EstadisticasController extends Controller
      */
     public function update(Request $request, Estadisticas $estadisticas)
     {
-        //
+        $estadistica = Estadisticas::where('id', $estadisticas->id)
+        ->first();
+
+        if (!$estadistica){
+        return view('Backend.index');
+        }
+        else{
+            $estadistica = Estadisticas::find($estadisticas->id)
+                                ->fill($request->input());
+            $estadistica->role_user_id = Auth::id();
+            $estadistica->save();
+            return redirect()->route("verestadisticas");
+            }
     }
 
     /**
@@ -81,6 +119,7 @@ class EstadisticasController extends Controller
      */
     public function destroy(Estadisticas $estadisticas)
     {
-        //
+        Estadisticas::where('id', $estadisticas->id)->delete();
+        return redirect()->route("verestadisticas");
     }
 }
