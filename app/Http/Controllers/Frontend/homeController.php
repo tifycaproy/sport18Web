@@ -9,6 +9,7 @@ use App\Noticias;
 use App\Jugadores;
 use App\Nosotros;
 use App\Galeria;
+use App\Estadisticas;
 
 
 
@@ -29,14 +30,16 @@ class homeController extends Controller{
 
     public function noticia(){
 
+
+
     	$noticias = Noticias::where('publico',1)->orderBy('posicion', 'asc')->limit(2)->get();
     	return view('Frontend.noticias', compact('noticias'));	
     }
 
     public function detalle($id){
-
+         $galeria = Galeria::where('tipo_relacion',2)->where('publico',1)->where('id_relacion', $id)->get();
     	$noticia = Noticias::where('id',$id)->first();
-    	return view('Frontend.detalle', compact('noticia'));	
+    	return view('Frontend.detalle', compact('noticia','galeria'));	
     }
 
     public function jugador($id){
@@ -46,7 +49,15 @@ class homeController extends Controller{
 
         $galeria = Galeria::where('tipo_relacion',1)->where('publico',1)->where('id_relacion', $id)->get();
 
-        return view('Frontend.jugador', compact('jugador','galeria','galeriaPortada'));
+        $estadistica = Estadisticas::where('id_jugador', $id)->first();
+
+
+        return view('Frontend.jugador', compact('jugador','galeria','galeriaPortada','estadistica'));
+    }
+
+    public function jugadores(){
+        $jugadores = Jugadores::Index()->where('publico', 1)->get();
+        return view('Frontend.jugadores',compact('jugadores'));
     }
 
 

@@ -266,7 +266,8 @@
                                             </ul>
                                         </li> --}}
                                         <li><a href="{{ route('noticia') }}">Noticias</a></li>
-                                        <li><a href="contactus.html">Contacto</a></li>
+                                        <li><a href="{{ route('jugadores') }}">Jugadores</a></li>
+                                        <li><a href="">Contacto</a></li>
                                         {{-- <li>
                                             <a href="#"><i class=" fas fa-navicon"></i></a>
                                             <ul>

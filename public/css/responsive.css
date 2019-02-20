@@ -268,6 +268,30 @@
 	}
 }
 @media (max-width:800px){
+	.portada{
+		height: 40%; 
+	}
+	
+	.tg-blogpost{
+		padding: 0px !important;
+	}
+	.tg-postimg{
+		height: inherit;
+	}
+	.img_perfil{
+		width: 150px;
+		height: 150px;
+		margin-top: -50px;
+		
+	}
+
+	.img_perfil_img{
+		width: 300px !important;
+		max-width: inherit;
+		margin-left: -100px;
+	}
+
+
 	.tg-sidenavshow .tg-btnnav {left: 275px;}
 	.tg-navscrollbar,
 	.tg-sidenav {width: 300px;}
@@ -718,6 +742,31 @@
 	}
 }
 @media (max-width:480px){
+	
+	.portada{
+		height: 40%; 
+	}
+
+	.img_perfil{
+		width: 150px;
+		height: 150px;
+		margin-top: -50px;
+		margin-left: 30%;
+		
+	}
+
+	.img_perfil_img{
+		width: 300px !important;
+		max-width: inherit;
+		margin-left: -100px;
+	}
+
+	.tittle_jugador{
+		font-size: 2.5rem;
+		margin-top: 3rem;
+
+	}
+
 	.tg-home-slider .tg-btn-next {right: 0;}
 	.tg-home-slider .tg-btn-prev {left: 0;}
 	.tg-slider-content{
