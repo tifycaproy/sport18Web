@@ -108,10 +108,6 @@
 									<h3>Asesoramiento</h3>
 									{{-- <p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p> --}}
 								</div>
-							</div>
-						</div>
-						<div class="col-sm-12 col-xs-12">
-							<div class="tg-statistics">
 								<div class="tg-statistic tg-earnedawards">
 										<i class="far fa-id-card servicios"></i>
 									<h3>Representación<br>de futbolistas</h3>
@@ -238,7 +234,7 @@
 												</div>
 												<div class="col-md-8 col-sm-8 col-xs-12">
 													<div class="tg-contentbox">
-														<div class="tg-section-heading" ><h2 style="color: black; font-weight: bold">{{ $jugadores[$i]->nombres }}</h2></div>
+														<div class="tg-section-heading" ><h2 style="color: black; font-weight: bold; font-size: 3rem;">{{ $jugadores[$i]->nombres }}</h2></div>
 														
 														<div class="tg-description row">
 															
@@ -257,7 +253,7 @@
 																
 															</div>
 
-															<div class="col-sm-12 mt-5 mb-5" ">
+															<div class="col-sm-12  mb-5">
 																@isset ( $jugadores[$i]->facebook)
 																    <a href="" title="" class="red-icon"><i class="fab fa-facebook"></i></a>
 																@endisset
@@ -267,12 +263,14 @@
 																@isset ( $jugadores[$i]->instagram)
 																    <a href="" title="" class="red-icon"><i class="fab fa-instagram"></i></a>
 																@endisset
+															
+																<div class="tg-btnbox">
+																	<a class="tg-btn " href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
+																</div>
 															</div>
 														</div>
 														
-														<div class="tg-btnbox mt-5">
-															<a class="tg-btn mt-5" href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
-														</div>
+														
 													</div>
 												</div>
 											</div>
@@ -290,11 +288,11 @@
 				  <!-- Controls -->
 				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 				   {{--  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> --}}
-				    <span class="sr-only">Previous</span>
+				    <span class="sr-only">Anterior</span>
 				  </a>
 				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
 				    {{-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> --}}
-				    <span class="sr-only">Next</span>
+				    <span class="sr-only">Siguiente</span>
 				  </a>
 				</div>
 
