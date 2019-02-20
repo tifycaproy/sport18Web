@@ -11,10 +11,10 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-config/database.php
-.env
-composer.lock
-composer.json
+/config/database.php
+/.env
+/composer.lock
+/composer.json
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
