@@ -7,7 +7,7 @@
 		
 	</div>
 </div> --}}
-@if (count($galeriaPortada) > 0)
+@if ($galeriaPortada)
 @php
 
 	# code...
@@ -81,7 +81,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						@if (count($estadistica)> 0)
+						@if ($estadistica)
 						<tr>
 							<td>{{ $estadistica->convocatoria }}</td>
 							<td>{{ $estadistica->titular }}</td>
