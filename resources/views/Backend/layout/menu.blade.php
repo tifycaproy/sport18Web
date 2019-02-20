@@ -7,18 +7,18 @@
             </a>
           </li>
        
-          <li id="comentarios" class="nav-item">
+          {{-- <li id="comentarios" class="nav-item">
             <a class="nav-link disabled" href="{{ route('vercomentarios')}}">
               <i class="material-icons">comment</i>
               <p>Comentarios</p>
             </a>
-          </li>
-          <li id="newsletter" class="nav-item">
+          </li> --}}
+         {{--  <li id="newsletter" class="nav-item">
             <a class="nav-link disabled" href="{{ route('vernewsletter')}}">
               <i class="material-icons">email</i>
               <p>NewsLetter</p>
             </a>
-          </li>
+          </li> --}}
           <li id="noticias" class="nav-item">
             <a class="nav-link disabled" href="{{ route('vernoticias')}}">
               <i class="material-icons">vertical_split</i>
@@ -37,6 +37,13 @@
               <i class="material-icons">face</i>
               <p>Jugadores</p>
             </a>
+          </li> 
+          <li id="jugadores" class="nav-item">
+            <a class="nav-link disabled" href="{{ route('verestadisticas')}}">
+              <i class="material-icons">face</i>
+              <p>Estadisticas</p>
+            </a>
+            
           </li> 
 
           @if(Auth::user()->hasRole('admin'))

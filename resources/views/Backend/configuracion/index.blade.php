@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back_none', 'd-none')
 @section('content')
 
 <div class="row">
@@ -49,8 +49,27 @@
                 </div>
                 <div class="col-6 mt-4">
                   <div class="form-group">
-                    <label for="video">Video (Iframe)</label>
+                    <label for="descripcion">Descripción (Footer)</label>
+                    <input type="text" class="form-control" value="@isset ($descripcion) {{ $descripcion }} @endisset" name="descripcion" id="descripcion" placeholder="" maxlength="100">
+                  </div>
+                </div>
+                <div class="col-4 mt-4">
+                  <div class="form-group">
+                    <label for="video">Video (Link)</label>
                     <input type="text" class="form-control" value="@isset ($video) {{ $video }} @endisset" name="video" id="video" placeholder="">
+                  </div>
+                </div>
+                <div class="col-4 mt-4">
+                  <div class="form-group">
+                    <label for="video">Video Texto</label>
+                    <input type="text" class="form-control" value="@isset ($video_texto) {{ $video_texto }} @endisset" name="video_texto" id="video_texto" placeholder="">
+                  </div>
+                </div>
+                <div class="col-4 mt-4">
+
+                  <div class="form-group">
+                    <label for="img_video" class="btn btn-info w-100">Imagen Video</label>
+                    <input type="file" class="form-control-file" name="img_video" id="img_video" placeholder="">
                   </div>
                 </div>
                 <div class="col-6 mt-4">

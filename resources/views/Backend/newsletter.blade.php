@@ -1,16 +1,16 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back_none', 'd-none')
 @section('content')
 
 <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">NewsLetter</h4>
-                  <a href="{{ route('excelnewsletter')}}" class="card-category">
+                 {{--  <a href="{{ route('excelnewsletter')}}" class="card-category">
                     <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Exportar">
                       <i class="material-icons">import_export</i>
                     </button>
-                     Exportar Excel</a>
+                     Exportar Excel</a> --}}
                   <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                 </div>
                 <div class="card-body">

@@ -1,66 +1,30 @@
 @extends ('Frontend.layouts.layout')
 
 @section('contenido')
-
-
-
-
-
-	
-	<!--************************************
-			Home Slider Start
-	*************************************-->
+{{-- SLIDER --}}
 	<div class="tg-sliderbox">
 		<div class="tg-imglayer">
-			<img src="{{asset('images/bg-pattran.png')}}" alt="image desctription">
+			<img src="{{asset('images/bg.png')}}" alt="image desctription">
 		</div>
 		<div id="tg-home-slider" class="tg-home-slider tg-haslayout">
 			<div class="swiper-wrapper">
+				@foreach ($sliders as $slider)
 				<div class="swiper-slide">
 					<div class="container">
 						<figure class="floating">
-							<img src="{{asset('images/slider_1.png')}}" alt="image description">
+							<img src="{{asset('images/sliders')}}/{{ $slider->url_imagen }}" alt="{{ $slider->titulo }}">
 						</figure>
 						<div class="tg-slider-content">
-							<h1>alive and <span>kickin</span></h1>
+							<h1> {{ $slider->titulo }} <span>{{ $slider->contenido }}</span></h1>
 							<div class="tg-btnbox">
-								<h2>from june 27</h2>
-								<a class="tg-btn" href="#"><span>Leer Más</span></a>
-								<a class="tg-btn" href="#"><span>book my ticket</span></a>
+								{{-- <h2>from june 27</h2> --}}
+								{{-- <a class="tg-btn" href="#"><span>Leer Más</span></a> --}}
+								{{-- <a class="tg-btn" href="#"><span>book my ticket</span></a> --}}
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="swiper-slide">
-					<div class="container">
-						<figure class="floating">
-							<img src="{{asset('images/slider_1.png')}}" alt="image description">
-						</figure>
-						<div class="tg-slider-content">
-							<h1>alive and <span>kickin</span></h1>
-							<div class="tg-btnbox">
-								<h2>from june 27</h2>
-								<a class="tg-btn" href="#"><span>Leer Más</span></a>
-								<a class="tg-btn" href="#"><span>book my ticket</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="container">
-						<figure class="floating">
-							<img src="{{asset('images/slider_1.png')}}" alt="image description">
-						</figure>
-						<div class="tg-slider-content">
-							<h1>alive and <span>kickin</span></h1>
-							<div class="tg-btnbox">
-								<h2>from june 27</h2>
-								<a class="tg-btn" href="#"><span>Leer Más</span></a>
-								<a class="tg-btn" href="#"><span>book my ticket</span></a>
-							</div>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
 			<div class="tg-btn-next">
 				<span>next</span>
@@ -72,62 +36,47 @@
 			</div>
 		</div>
 	</div>
-	<!--************************************
-			Home Slider End
-	*************************************-->
-	<!--************************************
-			Main Start
-	*************************************-->
+	{{--  --}}
 	{{-- <main id="tg-main" class="tg-main tg-haslayout"> --}}
 		<section class="tg-main-section tg-haslayout">
 			<div class="container">
-					<h1 class="titulo">Noticias</h1>
+				<h1 class="titulo">Noticias</h1>
+				<div class="d-flex justify-content-end text-right mb-3">
+					<a href="{{ route('noticia') }}" title="">Ver Más</a>
+				</div>
 				<div class="col-sm-12 col-xs-12 ">
 					<div class="row">
 						<div class="tg-blogpost">
 							<div class="row">
+								@foreach ($noticias as $noticia)
 								<div class="col-sm-6 col-xs-12">
 									<article class="tg-post">
 										<figure class="tg-postimg">
-											<a href="#">
-												<img src="{{asset('images/noticia_01.jpg')}}" alt="image description">
-											</a>
-											<figcaption>
+											@if ($noticia->url_multimedia != NULL)
+												{!! html_entity_decode($noticia->url_multimedia) !!}
+											@endif
+											@if ($noticia->url_imagen != NULL)
+												<a href="{{ route('detalle',$noticia->id) }}">
+													<img src="{{asset('images/noticias')}}/{{ $noticia->url_imagen }}" alt="image description">
+												</a>
+											@endif
+											
+											{{-- <figcaption>
 												<ul class="tg-postmetadata">
 													<li><a href="#">by admin</a></li>
 													<li><a href="#">04 comments</a></li>
 													<li><a href="#">lifestyle</a></li>
 												</ul>
-											</figcaption>
+											</figcaption> --}}
 										</figure>
-										<div class="tg-posttitle"><h3><a href="#">dipisicing elit sed do eiusmod tempor indunt</a></h3></div>
+										<div class="tg-posttitle"><h3><a href="#">{{ $noticia->titulo }}</a></h3></div>
 										<div class="tg-description">
-											<p>Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip exea commodo consequat.</p>
+											{!! html_entity_decode($noticia->resumen) !!}
 										</div>
-										<a class="tg-btn" href="#">Leer Más</a>
+										<a class="tg-btn" href="{{ route('detalle',$noticia->id) }}">Leer Más</a>
 									</article>
 								</div>
-								<div class="col-sm-6 col-xs-12">
-									<article class="tg-post">
-										<figure class="tg-postimg">
-											<a href="#">
-												<img src="{{asset('images/noticia_02.jpg')}}" alt="image description">
-											</a>
-											<figcaption>
-												<ul class="tg-postmetadata">
-													<li><a href="#">by admin</a></li>
-													<li><a href="#">04 comments</a></li>
-													<li><a href="#">lifestyle</a></li>
-												</ul>
-											</figcaption>
-										</figure>
-										<div class="tg-posttitle"><h3><a href="#">dipisicing elit sed do eiusmod tempor indunt</a></h3></div>
-										<div class="tg-description">
-											<p>Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip exea commodo consequat.</p>
-										</div>
-										<a class="tg-btn" href="#"><span>Leer Más</span></a>
-									</article>
-								</div>
+								@endforeach
 							</div>
 						</div>
 					</div>
@@ -140,24 +89,24 @@
 		*************************************-->
 		<section class="tg-main-section tg-haslayout tg-bgdark">
 				<div class="container">
-						<h1 class="titulo_2">Servicios</h1>
+						<h1 class="titulo_2 mb-5">Servicios</h1>
 					<div class="row">
 						<div class="col-sm-12 col-xs-12">
 							<div class="tg-statistics">
 								<div class="tg-statistic tg-goals">
 										<i class="fas fa-search-plus servicios"></i>
 									<h3>Captación de Jugadores</h3>
-									<p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+									{{-- <p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p> --}}
 								</div>
 								<div class="tg-statistic tg-activeplayers ">
 										<i class="far fa-newspaper servicios"></i>
 									<h3>Marketing deportivo</h3>
-									<p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+									{{-- <p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p> --}}
 								</div>
 								<div class="tg-statistic tg-activeteams ">
 										<i class="fas fa-chart-bar servicios"></i>
 									<h3>Asesoramiento</h3>
-									<p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+									{{-- <p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p> --}}
 								</div>
 							</div>
 						</div>
@@ -166,17 +115,17 @@
 								<div class="tg-statistic tg-earnedawards">
 										<i class="far fa-id-card servicios"></i>
 									<h3>Representación<br>de futbolistas</h3>
-									<p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+									{{-- <p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p> --}}
 								</div>
 								<div class="tg-statistic tg-earnedawards">
 										<i class="far fa-futbol servicios"></i>
 									<h3>Búsqueda de clubes<br>para jugadores</h3>
-									<p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+									{{-- <p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p> --}}
 								</div>
 								<div class="tg-statistic tg-earnedawards">
 										<i class="fas fa-coins servicios"></i>
 									<h3>Asesoramiento<br>legal y finaciero</h3>
-									<p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p>
+									{{-- <p style="color:white">Consectetur adipisicing elit sedtado eiusmod dunt ut labore et dolore magna aliqua enim minim veniami quis nostrud.</p> --}}
 								</div>
 							</div>
 						</div>
@@ -190,12 +139,12 @@
 		<!--************************************
 				Video Start
 		*************************************-->
-		<section class="tg-videobox tg-haslayout">
+		<section class="tg-videobox tg-haslayout" style="background-image: url('{{asset('images/img_video')}}/{{ $video_img }}'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover">
 				<figure>
-					<img src="{{asset('images/bg-video.jpg')}}" alt="image description">
+					{{-- <img src="{{asset('images/img_video')}}/{{ $video_img }}" alt=""> --}}
 					<figcaption>
-						<a class="tg-playbtn" href="https://youtu.be/iC9CpnSj-MU?iframe=true" data-rel="prettyPhoto[iframe]"></a>
-						<h2>accusantium doloremque lauda totam rem aperiam ipsa</h2>
+						<a class="tg-playbtn" href="@isset ($video){{$video}}@endisset" data-rel="prettyPhoto[iframe]"></a>
+						<h2>@isset ($video_texto){{$video_texto}}@endisset</h2>
 					</figcaption>
 				</figure>
 			</section>
@@ -207,40 +156,148 @@
 				Upcoming Match Start
 		*************************************-->
 		<section class=" tg-haslayout tg-bgstyleone">
-			<div class="tg-bgboxone"></div>
-			<div class="tg-bgboxtwo"></div>
-			<div class="tg-bgpattrant">
-				<div class="container">
-					<div class="row">
-						<div class="tg-upcomingmatch-counter">
-							<div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
-								<figure>
-									<img src="images/img-02.png" alt="image description">
-								</figure>
-							</div>
-							<div class="col-md-8 col-sm-8 col-xs-12">
-								<div class="tg-contentbox">
-									<div class="tg-section-heading"><h2>Gladiators <span>VS</span> Horned Frogs</h2></div>
-									<div class="tg-description">
-										<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minimam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-												Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip ex ea commodo consequat.
-												Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip ex ea commodo consequat.
-												Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip ex ea commodo consequat.
-												<br>
-												Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip ex ea commodo consequat.
-												
-										</p>
-									</div>
-									
-									<div class="tg-btnbox">
-										<a class="tg-btn" href="#"><span>Leer Más</span></a>
+			
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				  <div class="carousel-inner" role="listbox">
+					@php
+		                $longitud = count($jugadores);
+		            @endphp
+		            @for ($i = 0; $i < $longitud ; $i++)
+
+		            @if ($i == 0)
+					    <div class="item active">
+							<div>
+								<div class="tg-bgpattrant">
+									<div class="container">
+										<div class="row">
+											<div class="tg-upcomingmatch-counter">
+												<div class="forma"></div>
+												<div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
+													<figure style="height: 600px">
+														<img src="{{ asset('images/jugadores') }}/{{ $jugadores[$i]->img }}" style="height: 100%; margin-left: -100px" alt="{{ $jugadores[$i]->nombres }}">
+													</figure>
+												</div>
+												<div class="col-md-8 col-sm-8 col-xs-12">
+													<div class="tg-contentbox">
+														<div class="tg-section-heading" ><h2 style="color: black; font-weight: bold">{{ $jugadores[$i]->nombres }}</h2></div>
+														<div class="tg-description row">
+															
+															<div class="col-sm-6">
+																<h4><b>Fecha de Nacimiento:</b> {{ $jugadores[$i]->fecha_nacimiento }}</h4>
+																<h4><b>Lugar de Nacimiento:</b> {{ $jugadores[$i]->lugar_nacimiento }}</h4>
+																<h4><b>Tipo:</b> {{ $jugadores[$i]->tipo }}</h4>
+																<h4><b>Peso:</b> {{ $jugadores[$i]->peso }}</h4>
+																<h4><b>Altura:</b> {{ $jugadores[$i]->altura }}</h4>
+															</div>
+															<div class="col-sm-6">
+																<h4><b>Equipo:</b> {{ $jugadores[$i]->equipo }} <img src="{{ asset('images/equipos') }}/{{ $jugadores[$i]->logo_equipo }}" width="15%" class="mx-auto" alt=""></h4>
+																<h4><b>Posición:</b> {{ $jugadores[$i]->posicion }}</h4>
+																<h4><b>Clasificación:</b> {{ $jugadores[$i]->clasificacion }}</h4>
+																<h4><b>Trayectoria:</b> {{ $jugadores[$i]->trayectoria }}</h4>
+																
+																
+															</div>
+															<div class="col-sm-12 mt-5 mb-5" ">
+																@isset ( $jugadores[$i]->facebook)
+																    <a href="" title="" class="red-icon"><i class="fab fa-facebook"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->twitter)
+																    <a href="" title="" class="red-icon"><i class="fab fa-twitter"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->instagram)
+																    <a href="" title="" class="red-icon"><i class="fab fa-instagram"></i></a>
+																@endisset
+															</div>
+														</div>
+														
+														<div class="tg-btnbox mt-1">
+															<a class="tg-btn mt-5" href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
+					    </div>
+				    @endif
+				     @if ($i > 0)
+					    <div class="item">
+							<div>
+								<div class="tg-bgpattrant">
+									<div class="container">
+										<div class="row">
+											<div class="tg-upcomingmatch-counter">
+												<div class="forma"></div>
+												<div class="col-md-4 col-sm-4 col-xs-12 hidden-xs">
+													<figure style="height: 600px">
+														<img src="{{ asset('images/jugadores') }}/{{ $jugadores[$i]->img }}" style="height: 100%; margin-left: -100px" alt="{{ $jugadores[$i]->nombres }}">
+													</figure>
+												</div>
+												<div class="col-md-8 col-sm-8 col-xs-12">
+													<div class="tg-contentbox">
+														<div class="tg-section-heading" ><h2 style="color: black; font-weight: bold">{{ $jugadores[$i]->nombres }}</h2></div>
+														
+														<div class="tg-description row">
+															
+															<div class="col-sm-6">
+																<h4><b>Fecha de Nacimiento:</b> {{ $jugadores[$i]->fecha_nacimiento }}</h4>
+																<h4><b>Lugar de Nacimiento:</b> {{ $jugadores[$i]->lugar_nacimiento }}</h4>
+																<h4><b>Tipo:</b> {{ $jugadores[$i]->tipo }}</h4>
+																<h4><b>Peso:</b> {{ $jugadores[$i]->peso }}</h4>
+																<h4><b>Altura:</b> {{ $jugadores[$i]->altura }}</h4>
+															</div>
+															<div class="col-sm-6">
+																<h4><b>Equipo:</b> {{ $jugadores[$i]->equipo }} <img src="{{ asset('images/equipos') }}/{{ $jugadores[$i]->logo_equipo }}" width="15%" class="mx-auto" alt=""></h4>
+																<h4><b>Posición:</b> {{ $jugadores[$i]->posicion }}</h4>
+																<h4><b>Clasificación:</b> {{ $jugadores[$i]->clasificacion }}</h4>
+																<h4><b>Trayectoria:</b> {{ $jugadores[$i]->trayectoria }}</h4>
+																
+															</div>
+
+															<div class="col-sm-12 mt-5 mb-5" ">
+																@isset ( $jugadores[$i]->facebook)
+																    <a href="" title="" class="red-icon"><i class="fab fa-facebook"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->twitter)
+																    <a href="" title="" class="red-icon"><i class="fab fa-twitter"></i></a>
+																@endisset
+																@isset ( $jugadores[$i]->instagram)
+																    <a href="" title="" class="red-icon"><i class="fab fa-instagram"></i></a>
+																@endisset
+															</div>
+														</div>
+														
+														<div class="tg-btnbox mt-5">
+															<a class="tg-btn mt-5" href="{{ route('jugador',$jugadores[$i]->id) }}"><span>Leer Más</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+					    </div>
+				    @endif
+				   
+				    @endfor
+				  </div>
+
+				  <!-- Controls -->
+				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				   {{--  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> --}}
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				    {{-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> --}}
+				    <span class="sr-only">Next</span>
+				  </a>
 				</div>
-			</div>
+
 		</section>
 		<!--************************************
 				Upcoming Match End
@@ -254,72 +311,9 @@
 							<div class="tg-player-grid2 tg-haslayout">
 								<div id="tg-player-slider" class="tg-player-slider tg-haslayout swiper-container-horizontal">
 									<div class="swiper-wrapper" style="transform: translate3d(-268.75px, 0px, 0px); transition-duration: 0ms;">
-										<div class="swiper-slide swiper-slide-prev" style="width: 238.75px; margin-right: 30px;">
-											<figure class="tg-postimg">
-												<img src="{{asset('images/directiva_1.jpg')}}" alt="image description">
-												<!--<div class="tg-img-hover">-->
-													<figcaption class="tg-img-hover">
-														<a href="#" class="tg-theme-tag">DIRECTOR</a>
-														<div class="tg-section-heading">
-															<h3><a href="#">Hustlin’ Owls</a></h3>
-															
-														</div>
-														<div class="tg-description">
-															<p>Incididunt utia labore et dolore siti magna aliqua adinim lipat</p>
-														</div>
-														<ul class="tg-socialicons">
-															<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-															<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-															<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-															<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-														</ul>
-													</figcaption>
-												<!--</div>-->
-											</figure>
-										</div>
-										<div class="swiper-slide swiper-slide-active" style="width: 238.75px; margin-right: 30px;">
-											<figure class="tg-postimg">
-												<img src="{{asset('images/directiva_2.jpg')}}" alt="image description">
-												<figcaption class="tg-img-hover">
-													<a href="#" class="tg-theme-tag">GERENTE</a>
-													<div class="tg-section-heading">
-														<h3><a href="#">Hustlin’ Owls</a></h3>
-														
-													</div>
-													<div class="tg-description">
-														<p>Incididunt utia labore et dolore siti magna aliqua adinim lipat</p>
-													</div>
-													<ul class="tg-socialicons">
-														<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-														<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-														<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-														<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-													</ul>
-												</figcaption>
-											</figure>
-										</div>
-										<div class="swiper-slide swiper-slide-next" style="width: 238.75px; margin-right: 30px;">
-											<figure class="tg-postimg">
-												<img src="{{asset('images/directiva_3.jpg')}}" alt="image description">
-												<figcaption class="tg-img-hover">
-													<a href="#" class="tg-theme-tag">ENTRENADOR</a>
-													<div class="tg-section-heading">
-														<h3><a href="#">Hustlin’ Owls</a></h3>
-														
-													</div>
-													<div class="tg-description">
-														<p>Incididunt utia labore et dolore siti magna aliqua adinim lipat</p>
-													</div>
-													<ul class="tg-socialicons">
-														<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-														<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-														<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-														<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-													</ul>
-												</figcaption>
-											</figure>
-										</div>
-										<div class="swiper-slide swiper-slide-prev" style="width: 238.75px; margin-right: 30px;">
+										
+										
+										{{-- <div class="swiper-slide swiper-slide-prev" style="width: 238.75px; margin-right: 30px;">
 												<figure class="tg-postimg">
 													<img src="{{asset('images/directiva_1.jpg')}}" alt="image description">
 													<!--<div class="tg-img-hover">-->
@@ -341,91 +335,38 @@
 														</figcaption>
 													<!--</div>-->
 												</figure>
-											</div>
-										<div class="swiper-slide" style="width: 238.75px; margin-right: 30px;">
+											</div> --}}
+									
+										@foreach ($miembros as $miembro)
+										<div class="swiper-slide " style="width: 238.75px; margin-right: 30px;">
 											<figure class="tg-postimg">
-												<img src="{{asset('images/directiva_2.jpg')}}" alt="image description">
+												<img src="{{asset('images/nosotros')}}/{{ $miembro->url_imagen }}" alt="image description">
 												<figcaption class="tg-img-hover">
-													<a href="#" class="tg-theme-tag">DIRECTOR</a>
+													<a href="#" class="tg-theme-tag">{{ $miembro->cargo }}</a>
 													<div class="tg-section-heading">
-														<h3><a href="#">Hustlin’ Owls</a></h3>
+														<h3 style="color: white">{{ $miembro->nombres }}</h3>
 														
 													</div>
-													<div class="tg-description">
+													{{-- <div class="tg-description">
 														<p>Incididunt utia labore et dolore siti magna aliqua adinim lipat</p>
-													</div>
+													</div> --}}
 													<ul class="tg-socialicons">
-														<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-														<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-														<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-														<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+														@isset ($miembro->facebook)
+														    <li><a href="{{ $miembro->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+														@endisset
+														@isset ($miembro->twitter)
+														   <li><a href="{{ $miembro->twitter }}"><i class="fab fa-twitter"></i></a></li>
+														@endisset
+														@isset ($miembro->instagram)
+														   <li><a href="{{ $miembro->instagram }}"><i class="fab fa-instagram"></i></a></li>
+														@endisset
 													</ul>
 												</figcaption>
 											</figure>
 										</div>
-										<div class="swiper-slide" style="width: 238.75px; margin-right: 30px;">
-											<figure class="tg-postimg">
-												<img src="{{asset('images/directiva_3.jpg')}}" alt="image description">
-												<figcaption class="tg-img-hover">
-													<a href="#" class="tg-theme-tag">ENTRENADOR</a>
-													<div class="tg-section-heading">
-														<h3><a href="#">Hustlin’ Owls</a></h3>
-														
-													</div>
-													<div class="tg-description">
-														<p>Incididunt utia labore et dolore siti magna aliqua adinim lipat</p>
-													</div>
-													<ul class="tg-socialicons">
-														<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-														<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-														<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-														<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-													</ul>
-												</figcaption>
-											</figure>
-										</div>
-										<div class="swiper-slide" style="width: 238.75px; margin-right: 30px;">
-											<figure class="tg-postimg">
-												<img src="{{asset('images/directiva_1.jpg')}}" alt="image description">
-												<figcaption class="tg-img-hover">
-													<a href="#" class="tg-theme-tag">MANAGER</a>
-													<div class="tg-section-heading">
-														<h3><a href="#">Hustlin’ Owls</a></h3>
-														
-													</div>
-													<div class="tg-description">
-														<p>Incididunt utia labore et dolore siti magna aliqua adinim lipat</p>
-													</div>
-													<ul class="tg-socialicons">
-														<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-														<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-														<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-														<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-													</ul>
-												</figcaption>
-											</figure>
-										</div>
-										<div class="swiper-slide" style="width: 238.75px; margin-right: 30px;">
-											<figure class="tg-postimg">
-												<img src="{{asset('images/directiva_2.jpg')}}" alt="image description">
-												<figcaption class="tg-img-hover">
-													<a href="#" class="tg-theme-tag">ENTRENADOR</a>
-													<div class="tg-section-heading">
-														<h3><a href="#">Hustlin’ Owls</a></h3>
-														
-													</div>
-													<div class="tg-description">
-														<p>Incididunt utia labore et dolore siti magna aliqua adinim lipat</p>
-													</div>
-													<ul class="tg-socialicons">
-														<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-														<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-														<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-														<li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-													</ul>
-												</figcaption>
-											</figure>
-										</div>
+										@endforeach
+
+
 									</div>
 									<div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
 									<div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
@@ -445,39 +386,53 @@
 									<div class="row">
 										<div class="col-md-5 col-sm-12 col-xs-12">
 											<div class="tg-contactinfobox">
-												<div class="tg-section-heading"><h2>feel free to send us your queries, Suggestion &amp; Remarks</h2></div>
+												{{-- <div class="tg-section-heading"><h2>feel free to send us your queries, Suggestion &amp; Remarks</h2></div> --}}
 												<div class="tg-description">
-													<p>Consectetur adipisicing elit sed do eiusmod temport incididunt utia labore et dolore magna aliqua enima ad minim veniam quistrud on ullamco laboris nisiut aliquip ex ea commodo consequat.</p>
+													<p>@isset ($descripcion){{ $descripcion }}@endisset</p>
 												</div>
 												<ul class="tg-contactinfo">
+													@isset ($direccion)
 													<li>
 														<i class="fa fa-map-marker"></i>
-														<address>123 Eccles Old Road, New Salford Road London, Uk, M6 7AF</address>
+														<address> {{ $direccion }} </address>
 													</li>
+													@endisset
+													@isset ($telefono) 
 													<li>
 														<i class="fa fa-phone"></i>
-														<span>+44 123 456 788 - 9</span>
+														<span>{{ $telefono }} </span>
 													</li>
+													@endisset
+													@isset ($email) 
 													<li>
 															<i class="fas fa-envelope"></i>
-														<a href="info@domain.com">info@domain.com</a>
+														<a href="{{ $email }}">{{ $email }}</a>
 													</li>
-													<li>
+													 @endisset
+													{{-- <li>
 														<i class="fab fa-skype"></i>
 														<a href="info@domain.com">Prosoccer772</a>
-													</li>
+													</li> --}}
+													@isset ($facebook) 
 													<li>
 														<i class="fab fa-facebook-f"></i>
-														<a href="info@domain.com">facebook.com/prosoccer772</a>
+														<a href="{{ $facebook }}">{{ $facebook }}</a>
 													</li>
+													@endisset
+
+													@isset ($twitter) 
 													<li>
 														<i class="fab fa-twitter"></i>
-														<a href="info@domain.com">twitter.com/prosoccer772</a>
+														<a href="{{ $twitter }}">{{ $twitter }}</a>
 													</li>
-													<li>
-														<i class="fa fa-laptop"></i>
-														<a href="info@domain.com">www.domain.com</a>
-													</li>
+													@endisset
+													@isset ($instagram)
+													   <li>
+														<i class="fab fa-instagram"></i>
+														<a href="{{ $instagram }}">{{ $instagram }}</a>
+													</li> 
+													@endisset
+													
 												</ul>
 											</div>
 										</div>
@@ -516,15 +471,23 @@
 						</div>
 					</div>
 					<div id="tg-mapcontent" class="tg-mapcontent owl-carousel owl-theme" style="opacity: 1; display: block;">
-						<div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 10888px; left: 0px; display: block;"><div class="owl-item" style="width: 1361px;"><div class="item">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.8070273775697!2d-0.13298118405677026!3d51.516756217839884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2d06098567%3A0x657781e4c62dccae!2s14+Tottenham+Court+Rd%2C+Fitzrovia%2C+London+W1T+1JY%2C+UK!5e0!3m2!1sen!2s!4v1468332667385"></iframe>
-						</div></div><div class="owl-item" style="width: 1361px;"><div class="item">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.0010946428147!2d-2.3645922841588!3d51.384657927491055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487181149eed3bff%3A0x3aaf87fd82220875!2s3+Edgar+Buildings+George+St%2C+Bath%2C+Bath+and+North+East+Somerset+BA1+2FJ%2C+UK!5e0!3m2!1sen!2s!4v1468332753250"></iframe>
-						</div></div><div class="owl-item" style="width: 1361px;"><div class="item">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2234.9551750898822!2d-3.212455184020526!3d55.93281498556128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887c70c0bdf6d55%3A0x4129ca60bdbbdb2d!2s46+Morningside+Rd%2C+Edinburgh+EH10+4BF%2C+UK!5e0!3m2!1sen!2s!4v1468332796662"></iframe>
-						</div></div><div class="owl-item" style="width: 1361px;"><div class="item">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.8450413820606!2d-1.9012604841263068!3d52.48194134680125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bc8e7d47e945%3A0x936a2fd5f8da0a2b!2s27+Colmore+Row%2C+Birmingham%2C+West+Midlands+B3+2EW%2C+UK!5e0!3m2!1sen!2s!4v1468332833565"></iframe>
-						</div></div></div></div>
+						<div class="owl-wrapper-outer">
+
+							<div class="owl-wrapper" style="width: 10888px; left: 0px; display: block;">
+
+								<div class="owl-item" style="width: 1361px;">
+									<div class="item">
+										@isset ($ubicacion)
+										   {!! html_entity_decode($ubicacion) !!} 
+										@endisset
+
+									</div>
+								</div>
+
+							
+
+							</div>
+						</div>
 						
 						
 						

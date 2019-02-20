@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-
+@section('link_back', url('admin/nosotros'))
 @section('content')
 
 <input id="mostra_vista" value="nosotros" hidden disabled>
@@ -88,7 +88,7 @@ $(document).ready(function(){
               </div>
             </div>
           </div>
-          <input class="btn btn-primary pull-right" type="submit" value="Modificar Miembro">
+          <input class="btn btn-primary pull-right" type="submit" value="Guardar">
           <div class="clearfix"></div>
           </form>
 

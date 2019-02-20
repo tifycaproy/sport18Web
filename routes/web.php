@@ -18,13 +18,10 @@
 // FRONTEND
 
 Route::get('/', 'Frontend\homeController@index')->name('/');
+Route::get('noticia', 'Frontend\homeController@noticia')->name('noticia');
+Route::get('noticia/detalle/{id}', 'Frontend\homeController@detalle')->name('detalle');
 
-
-
-
-
-
-
+Route::get('jugador/{id}','Frontend\homeController@jugador')->name('jugador');
 
 
 
@@ -198,6 +195,21 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/admin/jugadores/r{jugadores}', ['as' => 'eliminarjugador', 'uses'=>'Backend\JugadoresController@destroy']);
   //********************** FIN JUGADORES ****************************************
 
+ //********************** ESTADISTICAS ****************************************
+  //Listar registros de Estadisticas
+  Route::get('/admin/estadisticas', ['as' => 'verestadisticas', 'uses'=>'Backend\EstadisticasController@index']);
+  //Agregar registro de Estadisticas
+  Route::post('/admin/estadisticas', ['as' => 'ingresarestadistica', 'uses'=>'Backend\EstadisticasController@store']);
+  //Buscar estadistica ya registrado
+  Route::get('/admin/estadisticas/u{estadisticas}', ['as' => 'buscarestadistica', 'uses'=>'Backend\EstadisticasController@edit']);
+  //Actualizar estadistica ya registrado
+  Route::post('/admin/estadisticas/u{estadisticas}', ['as' => 'actualizarestadistica', 'uses'=>'Backend\EstadisticasController@update']);
+  //Mostrar formulario de Estadisticas
+  Route::get('/admin/nuevaestadistica', ['as' => 'formestadistica', 'uses'=>'Backend\EstadisticasController@create']);
+  //Eliminar registros de Estadisticas
+  Route::get('/admin/estadisticas/r{estadisticas}', ['as' => 'eliminarestadistica', 'uses'=>'Backend\EstadisticasController@destroy']);
+  //********************** FIN ESTADISTICAS ****************************************
+
  //********************** Equipos ****************************************
   //Agregar registro de Equipos
   Route::post('/admin/equipos', ['as' => 'ingresarequipo', 'uses'=>'Backend\EquiposController@store']);
@@ -293,6 +305,16 @@ Route::group(['middleware' => 'auth'], function()
   // CONFIGURACION
 
   Route::resource('configuracion', 'Backend\Configuracion\ConfigurarController');
+
+  // GALERIA
+  Route::get('admin/galeria/index/{tipo}/{id}', 'Backend\GaleriaController@index')->name('galeria');
+  Route::get('admin/galeria/create/{tipo}/{id}', 'Backend\GaleriaController@create')->name('galeria.create');
+  Route::post('admin/galeria/store', 'Backend\GaleriaController@store')->name('galeria.store');
+  Route::post('admin/galeria/update', 'Backend\GaleriaController@update')->name('galeria.update');
+  Route::get('admin/galeria/edit/{tipo}/{id}', 'Backend\GaleriaController@edit')->name('galeria.edit');
+  Route::get('admin/galeria/destroy/{tipo}/{jugador}/{id}', 'Backend\GaleriaController@destroy')->name('galeria.destroy');
+
+
 });
 
 
