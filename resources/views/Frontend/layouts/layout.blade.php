@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="{{asset('css/transitions.css')}}">
 	<link rel="stylesheet" href="{{asset('css/prettyPhoto.css')}}">
 	<link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
-	{{-- <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}"> --}}
+	<link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
 	<link rel="stylesheet" href="{{asset('css/animate.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 	<link rel="stylesheet" href="{{asset('css/color.css')}}">
 	<link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-	{{-- <script src="{{asset('js/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script> --}}
+	<script src="{{asset('js/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
 </head>
 
 <body>
@@ -362,8 +362,10 @@
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('js/customScrollbar.min.js')}}"></script>
 	<script src="{{asset('js/owl.carousel.js')}}"></script>
-	<script src="{{asset('js/isotope.pkgd.js')}}"></script>
-	<script src="{{asset('js/prettyPhoto.js')}}"></script>
+
+	{{-- <script src="{{asset('js/isotope.pkgd.js')}}"></script> --}}
+	{{-- <script src="{{asset('js/prettyPhoto.js')}}"></script> --}}
+
 	<script src="{{asset('js/swiper.min.js')}}"></script>
 	<script src="{{asset('js/jquery-ui.js')}}"></script>
 	<script src="{{asset('js/countTo.js')}}"></script>
