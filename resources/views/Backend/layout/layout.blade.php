@@ -11,9 +11,14 @@
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="{{ asset('css/material-dashboard.css?v=2.1.0') }}" rel="stylesheet" />
   <link rel="stylesheet" type="text/css" href="{{ asset('css/style_back.css') }}">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css"> --}}
 
   <style type="text/css" media="screen">
     
@@ -117,6 +122,12 @@
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="{{ asset('demo/demo.js') }}"></script>
   <script src="https://cdn.ckeditor.com/4.11.1/full/ckeditor.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"></script>
+  <script src="{{ asset('js/plugins/moment.min.js') }}"></script>
+  {{-- <script src="{{ asset('js/plugins/bootstrap-datetimepicker.min.js') }}"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+  {{-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script> --}}
   <!-- <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/decoupled-document/ckeditor.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/decoupled-document/translations/es.js"></script> -->
   <script>

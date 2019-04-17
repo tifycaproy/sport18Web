@@ -45,6 +45,12 @@
             </a>
             
           </li> 
+          <li id="estadisticas_equipos" class="nav-item">
+            <a class="nav-link disabled" href="{{ route('verposicionesequipos')}}">
+              <i class="material-icons">table_chart</i>
+              <p>Posiciones Equipos</p>
+            </a>            
+          </li> 
 
           @if(Auth::user()->hasRole('admin'))
           <li id="usuarios" class="nav-item">

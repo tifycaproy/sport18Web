@@ -210,6 +210,21 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/admin/estadisticas/r{estadisticas}', ['as' => 'eliminarestadistica', 'uses'=>'Backend\EstadisticasController@destroy']);
   //********************** FIN ESTADISTICAS ****************************************
 
+  //********************** Posiciones Equipos ****************************************
+  //Listar registros de Estadisticas
+  Route::get('/admin/posicionesequipos', ['as' => 'verposicionesequipos', 'uses'=>'Backend\EstadisticasEquiposController@index']);
+  //Agregar registro de Estadisticas
+  Route::post('/admin/posicionesequipos', ['as' => 'ingresarposicionequipo', 'uses'=>'Backend\EstadisticasEquiposController@store']);
+  //Buscar estadistica ya registrado
+  Route::get('/admin/posicionesequipos/u{posicionequipo}', ['as' => 'buscarposicionequipo', 'uses'=>'Backend\EstadisticasEquiposController@edit']);
+  //Actualizar estadistica ya registrado
+  Route::post('/admin/posicionesequipos/u{posicionequipo}', ['as' => 'actualizarposicionequipo', 'uses'=>'Backend\EstadisticasEquiposController@update']);
+  //Mostrar formulario de Estadisticas
+  Route::get('/admin/nuevaposicionequipo', ['as' => 'formposicionequipo', 'uses'=>'Backend\EstadisticasEquiposController@create']);
+  //Eliminar registros de Estadisticas
+  Route::get('/admin/posicionesequipos/r{posicionequipo}', ['as' => 'eliminarposicionequipo', 'uses'=>'Backend\EstadisticasEquiposController@destroy']);
+  //********************** FIN POSICIONES EQUIPOS ****************************************
+
  //********************** Equipos ****************************************
   //Agregar registro de Equipos
   Route::post('/admin/equipos', ['as' => 'ingresarequipo', 'uses'=>'Backend\EquiposController@store']);

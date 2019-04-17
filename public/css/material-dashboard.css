@@ -12,6 +12,7 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
+ 
 /*     brand Colors              */
 .card {
   font-size: .875rem; }
@@ -9889,11 +9890,11 @@ h2.title {
     .togglebutton label input[type=checkbox]:checked + .toggle:after {
       left: 15px; }
     .togglebutton label input[type=checkbox]:checked + .toggle {
-      background-color: rgba(156, 39, 176, 0.7); }
+      background-color: rgba(39, 76, 176, 0.7); }
     .togglebutton label input[type=checkbox]:checked + .toggle:after {
-      border-color: #9c27b0; }
+      border-color: #0a6ebd; }
     .togglebutton label input[type=checkbox]:checked + .toggle:active:after {
-      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.1); }
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(39, 98, 176, 0.1); }
 
 .ripple {
   position: relative; }
