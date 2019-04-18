@@ -5,17 +5,12 @@
 <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Estadisticas</h4>
+                  <h4 class="card-title ">Estadisticas Jugadores</h4>
                   <a href="{{ route('formestadistica')}}" class="card-category">
                       <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
                         <i class="material-icons">insert_chart</i>
                       </button>
                        Agregar Estadistica de Jugador</a>
-                  <a href="{{ route('formposicionequipo')}}" class="card-category">
-                    <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
-                      <i class="material-icons">flag</i>
-                    </button>
-                      Agregar Estadistica de Equipo</a>
                   <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
                 </div>
                 <div class="card-body">
@@ -67,8 +62,6 @@
                 </div>
               </div>
             </div>
-
-
 
 @endsection
 

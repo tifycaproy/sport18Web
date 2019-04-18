@@ -46,9 +46,9 @@
             
           </li> 
           <li id="estadisticas_equipos" class="nav-item">
-            <a class="nav-link disabled" href="{{ route('verposicionesequipos')}}">
+            <a class="nav-link disabled" href="{{ route('verposicionesequipos',['apertura_cierre'=>2,'fecha_ano'=>'1'])}}">
               <i class="material-icons">table_chart</i>
-              <p>Posiciones Equipos</p>
+              <p>Datos</p>
             </a>            
           </li> 
 

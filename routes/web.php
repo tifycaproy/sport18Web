@@ -212,7 +212,9 @@ Route::group(['middleware' => 'auth'], function()
 
   //********************** Posiciones Equipos ****************************************
   //Listar registros de Estadisticas
-  Route::get('/admin/posicionesequipos', ['as' => 'verposicionesequipos', 'uses'=>'Backend\EstadisticasEquiposController@index']);
+  Route::get('/admin/posicionesequipos/{apertura_cierre}/{fecha_ano}', ['as' => 'verposicionesequipos', 'uses'=>'Backend\EstadisticasEquiposController@index']);
+  //Listar registros de Posiciones con filtros
+  Route::post('/admin/posicionesequipos/filter/eq', ['as' => 'verposicionesequiposuno', 'uses'=>'Backend\EstadisticasEquiposController@show']);
   //Agregar registro de Estadisticas
   Route::post('/admin/posicionesequipos', ['as' => 'ingresarposicionequipo', 'uses'=>'Backend\EstadisticasEquiposController@store']);
   //Buscar estadistica ya registrado

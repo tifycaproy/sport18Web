@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Estadisticas;
 use App\Jugadores;
+use App\EstadisticasEquipos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

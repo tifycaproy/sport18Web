@@ -1,5 +1,5 @@
 @extends ('Backend.layout.layout')
-@section('link_back', url('admin/estadisticas'))
+@section('link_back', url('admin/posicionesequipos/2/1'))
 @section('content')
 
 <input id="mostra_vista" value="estadisticas" hidden disabled>
@@ -128,7 +128,7 @@
                                 <label>
                                   <input name="apertura_cierre"  type="checkbox">
                                   <span class="toggle"></span>
-                                  Apertura / Cierre
+                                  Apertura / Clausura
                                 </label>
                               </div>   
                             @if ($errors->has('apertura_cierre'))
@@ -150,10 +150,10 @@
   
 @endsection
 @push('scripts')
-{{-- <script>
+<script>
     var ano = (new Date).getFullYear();
         $(document).ready(function() {
           $("#fecha_ano").val( ano );
         });
-</script> --}}
+</script>
 @endpush
