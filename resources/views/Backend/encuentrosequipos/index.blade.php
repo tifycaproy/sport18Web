@@ -1,9 +1,6 @@
 @extends ('Backend.layout.layout')
 @section('link_back_none', 'd-none')
 @section('content')
-@php    
-use Carbon\Carbon;
-@endphp
 
 <input id="mostra_vista" value="estadisticas_equipos" hidden disabled>
 <div class="col-md-12">
@@ -54,11 +51,16 @@ use Carbon\Carbon;
                   <i class="material-icons">flag</i>
                 </button>
                   Agregar Est. de Equipo</a>
-            <a href="{{ route('formencuentroequipo')}}" class="card-category">
+            <a href="{{ route('formposicionequipo')}}" class="card-category">
                 <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
                   <i class="material-icons">insert_invitation</i>
                 </button>
-                  Agregar Encuentros / Resultados</a>                       
+                  Agregar Ult. Resultados</a>
+            <a href="{{ route('formposicionequipo')}}" class="card-category">
+                <button  type="button" rel="tooltip" title="" class="btn btn-white btn-link btn-sm" data-original-title="Agregar">
+                  <i class="material-icons">timer</i>
+                </button>
+                  Agregar Prox. Encuentros</a>           
           </div>
         </div>
       </div>
@@ -208,159 +210,6 @@ use Carbon\Carbon;
                 </div>
                 <!-- end content-->
           </div> 
-          <div class="tab-pane" id="asistencias">
-              <div class="card-body">
-                  <div class="toolbar">                    
-                  </div>
-                  <div class="material-datatables">
-                    <div id="datatables_wrapper">            
-                        <div class="row">
-                          <div class="col-sm-12">
-                        <table id="" class="table table-striped table-no-bordered table-hover dataTable dtr-inline listas" aria-describedby="datatables_info">
-                      <thead>
-                        <tr role="row">
-                          <th >Jugadores</th>                          
-                          <th>Equipo</th>     
-                          <th class="text-right">TA</th>                     
-                          <th class="text-right">PJ</th>
-                          <th class="text-right">A/P</th>
-                          <th class="text-right">Acciones</th>   
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          {{-- <th >GLOSARIO J:Número de partidos jugados G:El número de partidos ganados. E:Empate P:Derrotas GF:Goles a favor GC:Goles en contra DIF:Diferencia de puntos PTS:Puntos</th>
-                          <th >Position</th>
-                          <th >Office</th>
-                          <th >Age</th>
-                          <th >Start date</th>
-                          <th class="text-right">Actions</th> --}}
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                        @foreach ($asistencias as $key => $asistencia)
-                        <tr role="row">                            
-                            <td >{{$key+1}}. {{ $asistencia->nombres }}</td>                            
-                            <td>
-                                <div class="img-container" >
-                                   <img style="height: 20px;" src="../../../images/equipos/{{ $asistencia->img }}" alt="...">{{ $asistencia->descripcion }}
-                                  </div>
-                                  
-                            </td>       
-                            <td class="text-right">{{ $asistencia->t_a }}</td>                     
-                            <td class="text-right">{{ $asistencia->p_j }}</td>
-                            <td class="text-right">{{ $asistencia->a_p }}</td>                    
-                            <td class="text-right">                                
-                                <a onclick="location.href='{{ route('buscarestadistica',['id'=>$asistencia->id])}}'" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">edit</i><div class="ripple-container"></div></a>
-                                <a onclick="location.href='{{ route('eliminarestadistica',['id'=>$asistencia->id])}}'" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                            </td>
-                          </tr>
-                        @endforeach
-                      </tbody>
-                    </table></div></div>         
-                      </div>
-                  </div>
-                </div>
-                <!-- end content-->
-            </div>    
-          <div class="tab-pane" id="ultimos_resultados">
-              <div class="card-body">
-                  <div class="toolbar">                    
-                  </div>
-                  <div class="material-datatables">
-                    <div id="datatables_wrapper">            
-                        <div class="row">
-                          <div class="col-sm-12">
-                        <table id="" class="table table-striped table-no-bordered table-hover dataTable dtr-inline listas" aria-describedby="datatables_info">
-                      
-                      <tfoot>
-                        <tr>
-                          {{-- <th >GLOSARIO J:Número de partidos jugados G:El número de partidos ganados. E:Empate P:Derrotas GF:Goles a favor GC:Goles en contra DIF:Diferencia de puntos PTS:Puntos</th>
-                          <th >Position</th>
-                          <th >Office</th>
-                          <th >Age</th>
-                          <th >Start date</th>
-                          <th class="text-right">Actions</th> --}}
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                        @foreach ($encuentros_equipos as $key => $encuentro_equipo)
-                        <tr role="row">                            
-                            <td colspan="3" class="text-center">{{ Carbon::parse($encuentro_equipo->fecha_encuentro)->format('d/m/Y') }}</td>                                                        
-                            <td></td>
-                        </tr>
-                        <tr role="row">                                                                                    
-                            <td class="text-right">
-                                <div class="img-container" >
-                                   <img style="height: 20px;" src="../../../images/equipos/{{ $encuentro_equipo->img_equipo_1 }}" alt="...">{{ $encuentro_equipo->descripcion_equipo_1 }}
-                                  </div>                                  
-                            </td>       
-                            <td class="text-center">{{ $encuentro_equipo->goles_1 }} - {{ $encuentro_equipo->goles_2 }}</td>
-                            <td>
-                                <div class="img-container" >
-                                   <img style="height: 20px;" src="../../../images/equipos/{{ $encuentro_equipo->img_equipo_2 }}" alt="...">{{ $encuentro_equipo->descripcion_equipo_2 }}
-                                  </div>                                  
-                            </td>                      
-                            <td class="text-right">                                
-                                <a onclick="location.href='{{ route('buscarencuentroequipo',['id'=>$encuentro_equipo->id])}}'" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">edit</i><div class="ripple-container"></div></a>
-                                <a onclick="location.href='{{ route('eliminarencuentroequipo',['id'=>$encuentro_equipo->id])}}'" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                            </td>
-                          </tr>
-                        @endforeach
-                      </tbody>
-                    </table></div></div>         
-                      </div>
-                  </div>
-                </div>
-                <!-- end content-->
-          </div> 
-          <div class="tab-pane" id="proximos_encuentros">
-              <div class="card-body">
-                  <div class="toolbar">                    
-                  </div>
-                  <div class="material-datatables">
-                    <div id="datatables_wrapper">            
-                        <div class="row">
-                          <div class="col-sm-12">
-                        <table id="" class="table table-striped table-no-bordered table-hover dataTable dtr-inline listas" aria-describedby="datatables_info">
-                      
-                      <tfoot>
-                        <tr>
-                          {{-- <th >GLOSARIO J:Número de partidos jugados G:El número de partidos ganados. E:Empate P:Derrotas GF:Goles a favor GC:Goles en contra DIF:Diferencia de puntos PTS:Puntos</th>
-                          <th >Position</th>
-                          <th >Office</th>
-                          <th >Age</th>
-                          <th >Start date</th>
-                          <th class="text-right">Actions</th> --}}
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                        @foreach ($proximos_encuentros as $key => $proximo_encuentro)                       
-                        <tr role="row">                                                                                    
-                            <td class="text-right">
-                                <div class="img-container" >
-                                   <img style="height: 20px;" src="../../../images/equipos/{{ $proximo_encuentro->img_equipo_1 }}" alt="...">{{ $proximo_encuentro->descripcion_equipo_1 }}
-                                  </div>                                  
-                            </td>       
-                            <td class="text-center">{{ Carbon::parse($proximo_encuentro->fecha_encuentro)->format('d/m/Y') }}</td>
-                            <td>
-                                <div class="img-container" >
-                                   <img style="height: 20px;" src="../../../images/equipos/{{ $proximo_encuentro->img_equipo_2 }}" alt="...">{{ $proximo_encuentro->descripcion_equipo_2 }}
-                                  </div>                                  
-                            </td>                      
-                            <td class="text-right">                                
-                                <a onclick="location.href='{{ route('buscarencuentroequipo',['id'=>$proximo_encuentro->id])}}'" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">edit</i><div class="ripple-container"></div></a>
-                                <a onclick="location.href='{{ route('eliminarencuentroequipo',['id'=>$proximo_encuentro->id])}}'" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                            </td>
-                          </tr>
-                        @endforeach
-                      </tbody>
-                    </table></div></div>         
-                      </div>
-                  </div>
-                </div>
-                <!-- end content-->
-          </div> 
           <div class="tab-pane" id="once_ideal">
               <div class="card-body">
                   <div class="toolbar">                    
@@ -415,7 +264,62 @@ use Carbon\Carbon;
                   </div>
                 </div>
                 <!-- end content-->
-            </div>                
+            </div>  
+            <div class="tab-pane" id="asistencias">
+                <div class="card-body">
+                    <div class="toolbar">                    
+                    </div>
+                    <div class="material-datatables">
+                      <div id="datatables_wrapper">            
+                          <div class="row">
+                            <div class="col-sm-12">
+                          <table id="" class="table table-striped table-no-bordered table-hover dataTable dtr-inline listas" aria-describedby="datatables_info">
+                        <thead>
+                          <tr role="row">
+                            <th >Jugadores</th>                          
+                            <th>Equipo</th>     
+                            <th class="text-right">TA</th>                     
+                            <th class="text-right">PJ</th>
+                            <th class="text-right">A/P</th>
+                            <th class="text-right">Acciones</th>   
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                            {{-- <th >GLOSARIO J:Número de partidos jugados G:El número de partidos ganados. E:Empate P:Derrotas GF:Goles a favor GC:Goles en contra DIF:Diferencia de puntos PTS:Puntos</th>
+                            <th >Position</th>
+                            <th >Office</th>
+                            <th >Age</th>
+                            <th >Start date</th>
+                            <th class="text-right">Actions</th> --}}
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          @foreach ($asistencias as $key => $asistencia)
+                          <tr role="row">                            
+                              <td >{{$key+1}}. {{ $asistencia->nombres }}</td>                            
+                              <td>
+                                  <div class="img-container" >
+                                     <img style="height: 20px;" src="../../../images/equipos/{{ $asistencia->img }}" alt="...">{{ $asistencia->descripcion }}
+                                    </div>
+                                    
+                              </td>       
+                              <td class="text-right">{{ $asistencia->t_a }}</td>                     
+                              <td class="text-right">{{ $asistencia->p_j }}</td>
+                              <td class="text-right">{{ $asistencia->a_p }}</td>                    
+                              <td class="text-right">                                
+                                  <a onclick="location.href='{{ route('buscarestadistica',['id'=>$asistencia->id])}}'" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">edit</i><div class="ripple-container"></div></a>
+                                  <a onclick="location.href='{{ route('eliminarestadistica',['id'=>$asistencia->id])}}'" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
+                              </td>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table></div></div>         
+                        </div>
+                    </div>
+                  </div>
+                  <!-- end content-->
+              </div>      
         </div>
       </div>
     </div>

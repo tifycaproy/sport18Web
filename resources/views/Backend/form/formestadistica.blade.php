@@ -103,6 +103,42 @@ toolbarGroups : [
                         @endif
                       </div>
                     </div>
+                  <div class="col-md-2">
+                    <div class="form-group bmd-form-group {{ $errors->has('t_a') ? ' has-error' : '' }}">
+                      {!! Form::label('t_a', 'TA') !!}
+                      {!! Form::tel('t_a', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+      
+                      @if ($errors->has('t_a'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('t_a') }}</strong>
+                          </span>
+                      @endif
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                      <div class="form-group bmd-form-group {{ $errors->has('p_j') ? ' has-error' : '' }}">
+                        {!! Form::label('p_j', 'PJ') !!}
+                        {!! Form::tel('p_j', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+        
+                        @if ($errors->has('p_j'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('p_j') }}</strong>
+                            </span>
+                        @endif
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group bmd-form-group {{ $errors->has('a_p') ? ' has-error' : '' }}">
+                          {!! Form::label('a_p', 'A/P') !!}
+                          {!! Form::tel('a_p', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+          
+                          @if ($errors->has('a_p'))
+                              <span class="help-block">
+                                  <strong>{{ $errors->first('a_p') }}</strong>
+                              </span>
+                          @endif
+                        </div>
+                      </div>
                     <div class="col-md-2">
                         <div class="form-group bmd-form-group {{ $errors->has('mj') ? ' has-error' : '' }}">
                           {!! Form::label('mj', 'MJ') !!}

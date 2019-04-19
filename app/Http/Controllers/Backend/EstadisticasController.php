@@ -19,7 +19,7 @@ class EstadisticasController extends Controller
      */
     public function index()
     {
-        $estadisticas=Estadisticas::select(DB::raw('estadisticas.id, id_jugador, jugadores.img, jugadores.nombres, pjugados, pganados, pperdidos, pempatados, goles, mj, v_a, amarilla, roja, titular, suplente, convocatoria, estadisticas.updated_at'))
+        $estadisticas=Estadisticas::select(DB::raw('estadisticas.id, id_jugador, jugadores.img, jugadores.nombres, estadisticas.updated_at'))
                             ->join('jugadores', 'estadisticas.id_jugador','=','jugadores.id')
                             ->orderBy('estadisticas.updated_at','desc')
                             ->get();
@@ -82,7 +82,7 @@ class EstadisticasController extends Controller
         return view('Backend.index');
         }
         else{
-        $estadistica = Estadisticas::select(DB::raw('estadisticas.id, id_jugador, jugadores.img, jugadores.nombres, pjugados, pganados, pperdidos, pempatados, goles, mj, v_a, amarilla, roja, titular, suplente, convocatoria, estadisticas.updated_at'))
+        $estadistica = Estadisticas::select(DB::raw('estadisticas.id, id_jugador, jugadores.img, jugadores.nombres, pjugados, pganados, pperdidos, pempatados, goles, t_a, p_j, a_p, mj, v_a, amarilla, roja, titular, suplente, convocatoria, estadisticas.updated_at'))
                         ->join('jugadores', 'estadisticas.id_jugador','=','jugadores.id')
                         ->where('estadisticas.id', $estadisticas->id)
                     ->first();        

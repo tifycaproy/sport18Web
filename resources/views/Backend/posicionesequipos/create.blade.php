@@ -2,7 +2,7 @@
 @section('link_back', url('admin/posicionesequipos/2/1'))
 @section('content')
 
-<input id="mostra_vista" value="estadisticas" hidden disabled>
+<input id="mostra_vista" value="estadisticas_equipos" hidden disabled>
 <script src="{{ asset('js/core/jquery.min.js') }}"></script>
 <div class="row">
     <div class="col-md-12">

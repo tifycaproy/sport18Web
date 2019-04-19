@@ -227,6 +227,23 @@ Route::group(['middleware' => 'auth'], function()
   Route::get('/admin/posicionesequipos/r{posicionequipo}', ['as' => 'eliminarposicionequipo', 'uses'=>'Backend\EstadisticasEquiposController@destroy']);
   //********************** FIN POSICIONES EQUIPOS ****************************************
 
+  //********************** Encuentros ****************************************
+  //Listar registros de Estadisticas
+  Route::get('/admin/encuentrosequipos/{apertura_cierre}/{fecha_ano}', ['as' => 'verencuentrosequipos', 'uses'=>'Backend\EncuentrosEquiposController@index']);
+  //Listar registros de Posiciones con filtros
+  Route::post('/admin/encuentrosequipos/filter/eq', ['as' => 'verencuentroequipouno', 'uses'=>'Backend\EncuentrosEquiposController@show']);
+  //Agregar registro de Estadisticas
+  Route::post('/admin/encuentrosequipos', ['as' => 'ingresarencuentroequipo', 'uses'=>'Backend\EncuentrosEquiposController@store']);
+  //Buscar estadistica ya registrado
+  Route::get('/admin/encuentrosequipos/u{encuentroequipo}', ['as' => 'buscarencuentroequipo', 'uses'=>'Backend\EncuentrosEquiposController@edit']);
+  //Actualizar estadistica ya registrado
+  Route::post('/admin/encuentrosequipos/u{encuentroequipo}', ['as' => 'actualizarencuentroequipo', 'uses'=>'Backend\EncuentrosEquiposController@update']);
+  //Mostrar formulario de Estadisticas
+  Route::get('/admin/nuevoencuentroequipo', ['as' => 'formencuentroequipo', 'uses'=>'Backend\EncuentrosEquiposController@create']);
+  //Eliminar registros de Estadisticas
+  Route::get('/admin/encuentrosequipos/r{encuentroequipo}', ['as' => 'eliminarencuentroequipo', 'uses'=>'Backend\EncuentrosEquiposController@destroy']);
+  //********************** FIN POSICIONES EQUIPOS ****************************************
+
  //********************** Equipos ****************************************
   //Agregar registro de Equipos
   Route::post('/admin/equipos', ['as' => 'ingresarequipo', 'uses'=>'Backend\EquiposController@store']);

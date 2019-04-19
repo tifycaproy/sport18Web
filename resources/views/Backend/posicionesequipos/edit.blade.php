@@ -2,7 +2,7 @@
 @section('link_back', url('admin/posicionesequipos/'.$estadistica_equipo->apertura_cierre_retorno.'/'.$estadistica_equipo->fecha_ano))
 @section('content')
 
-<input id="mostra_vista" value="estadisticas" hidden disabled>
+<input id="mostra_vista" value="estadisticas_equipos" hidden disabled>
 <script src="{{ asset('js/core/jquery.min.js') }}"></script>
 <div class="row">
     <div class="col-md-12">
@@ -13,19 +13,9 @@
         </div>
         <div class="card-body">
             <form action="{{ route('actualizarposicionequipo',['id'=>$estadistica_equipo->id])}}" method="POST" enctype="multipart/form-data">
-           {{ csrf_field() }}                      
-          <div class="row">  
-              <div class="col-md-3">
-                  <h4 class="title">Equipo:</h4>
-                  <div class="form-group bmd-form-group {{ $errors->has('equipo_id') ? ' has-error' : '' }}">                           
-                    {!! Form::select('equipo_id', $equipos, $estadistica_equipo->equipo_id, ['class' => 'form-control','required'=>'required','autofocus'=>'autofocus']) !!}
-                    @if ($errors->has('equipo_id'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('equipo_id') }}</strong>
-                        </span>
-                    @endif
-                  </div>
-                </div>       
+           {{ csrf_field() }} 
+           <h4 class="title">{{$equipos->descripcion}} - Torneo de {{$estadistica_equipo->apertura_cierre}} - Año {{$estadistica_equipo->fecha_ano}}:</h4><br>                     
+          <div class="row">                      
                 <div class="col-md-2">
                     <div class="form-group bmd-form-group {{ $errors->has('p_jugado') ? ' has-error' : '' }}">
                       {!! Form::label('p_jugado', 'Partidos Jugados') !!}
@@ -91,18 +81,7 @@
                         </span>
                     @endif
                   </div>
-                </div>
-            <div class="col-md-2">
-                <div class="form-group bmd-form-group {{ $errors->has('fecha_ano') ? ' has-error' : '' }}">
-                  {!! Form::label('fecha_ano', 'Año del Torneo') !!}
-                  <input id="fecha_ano" name="fecha_ano" value="{{$estadistica_equipo->fecha_ano}}" type="number" class="form-control" required>
-                  @if ($errors->has('fecha_ano'))
-                      <span class="help-block">
-                          <strong>{{ $errors->first('fecha_ano') }}</strong>
-                      </span>
-                  @endif
-                </div>
-              </div>  
+                </div>             
               <div class="col-md-2">
                 <div class="form-group bmd-form-group {{ $errors->has('publico') ? ' has-error' : '' }}">
                   <div class="form-check form-check-inline">
@@ -121,22 +100,6 @@
                   @endif
                 </div>
               </div>  
-              <div class="col-md-4">
-                <div class="form-group bmd-form-group {{ $errors->has('apertura_cierre') ? ' has-error' : '' }}">                        
-                  <div class="togglebutton">
-                      <label>
-                        <input name="apertura_cierre" {{$estadistica_equipo->apertura_cierre}} type="checkbox">
-                        <span class="toggle"></span>
-                        Apertura / Clausura
-                      </label>
-                    </div>   
-                  @if ($errors->has('apertura_cierre'))
-                      <span class="help-block">
-                          <strong>{{ $errors->first('apertura_cierre') }}</strong>
-                      </span>
-                  @endif
-                </div>
-              </div>          
           </div>   
           
             <input class="btn btn-primary pull-right" id="submit" type="submit" value="Guardar">
